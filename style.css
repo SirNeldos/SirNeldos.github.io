@@ -1,0 +1,108 @@
+:root {
+    --c-background: rgb(41, 47, 52);
+    --c-dark: rgb(53, 62, 69);
+    --c-darker: rgb(45, 52, 57);
+    --c-light: rgb(208, 208, 192);
+    --c-accent: rgb(43, 149, 82);
+    --c-medium: rgb(124, 127, 122);
+}
+
+body {
+    background-color: var(--c-background);
+    color: var(--c-light);
+    font-size: 100%;
+    font-family: arial, sans-serif;
+}
+
+p {
+    margin: 3px 0 3px 6px;
+}
+
+h1, h2, h3 {
+    font-family: times new roman,serif;
+    font-variant: small-caps;
+    font-weight: 500;
+    color: var(--c-accent);
+}
+
+h1 {
+    text-align: center;
+    font-size: 2.5em;
+}
+
+h2 {
+    font-size: 1.75em;
+    margin: 20px 0 6px 0;
+    border-bottom: 2px solid var(--c-accent);
+}
+
+h3 {
+    font-size: 1.5em;
+    margin: 20px 0 2px 0;
+}
+
+.chunk {
+    margin: 0 5% 20px 5%;
+    padding: 1%;
+}
+
+#basic-info {
+    background-color: var(--c-darker);
+    border-top: 6px solid var(--c-medium);
+    border-bottom: 6px solid var(--c-medium);
+}
+
+#class-table {
+    padding-left: 0;
+    padding-right: 0;
+}
+
+table {
+    border-collapse: collapse;
+    font-size: 0.8em;
+    width: 100%;
+}
+
+.thin-table {
+    margin: auto;
+    width: 75%;
+}
+
+.thin-table td {
+    text-align: left;
+}
+
+.thin-table .bold {
+    text-align: right;
+}
+
+td,
+th {
+    text-align: center;
+    padding: 8px;
+}
+
+tr:nth-child(even) {
+    background-color: var(--c-dark);
+}
+
+tr:nth-child(odd) {
+    background-color: var(--c-darker);
+}
+
+.bold {
+    font-weight: bold;
+}
+
+#table-head {
+    background-color: #888888;
+    border-bottom: 2px solid black;
+    border-left: 2px solid #888888;
+    border-right: 2px solid #888888;
+}
+
+#bordered {
+    border-left: 2px solid #888888;
+    border-top: 2px solid #888888;
+    border-right: 2px solid #888888;
+}
