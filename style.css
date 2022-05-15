@@ -58,12 +58,13 @@ h3 {
 }
 
 table {
-    font-size: 1vw;
+    font-size: min(1vw, 1em);
     width: 100%;
 }
 
 .thin-table {
-    margin: auto;
+    border-collapse: collapse;
+    margin: 20px auto auto auto;
     width: 75%;
 }
 
