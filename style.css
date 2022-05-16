@@ -12,6 +12,7 @@ body {
     color: var(--c-light);
     font-size: 100%;
     font-family: arial, sans-serif;
+    margin: 0;
 }
 
 p {
@@ -28,6 +29,7 @@ h1, h2, h3 {
 h1 {
     text-align: center;
     font-size: 2.5em;
+    margin-top: 80px;
 }
 
 h2 {
@@ -40,6 +42,36 @@ h3 {
     font-size: 1.5em;
     margin: 20px 0 2px 0;
 }
+
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    overflow: hidden;
+    background-color: var(--c-dark);
+    border-bottom: 1px solid var(--c-medium);
+  }
+  
+  nav li { float: left; }
+  
+  nav li a {
+    display: block;
+    color: var(--c-light);
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+  }
+  
+  nav li a:hover {
+    background-image: linear-gradient(var(--c-dark), var(--c-darker));
+  }
+  
+  nav .active {
+    background-image: linear-gradient(var(--c-dark), var(--c-accent)) !important;
+  }
 
 .chunk {
     margin: 0 5% 20px 5%;
@@ -70,11 +102,10 @@ table {
 
 .thin-table td {
     text-align: left;
+    background-color: var(--c-background);
 }
 
-.thin-table .bold {
-    text-align: right;
-}
+.thin-table .bold { text-align: right; }
 
 td,
 th {
