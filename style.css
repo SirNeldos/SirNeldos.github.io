@@ -145,35 +145,10 @@ td:nth-child(3) {
     background-color: var(--c-background);
 }
 
-@media (min-width:700px) { 
-    .construct-block { display: flex; }
-    #image { width: 27% !important; }
-}
-
-#image {
-    display: flex;
-    padding: 8px;
-    margin: 0;
-    align-content: center;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-}
-
 .construct-block {
     background-color: var(--c-dark);
     border-radius: 10px;
-    padding: 10px;
-}
-
-.construct-block img {
-    background-color: antiquewhite;
-    width: max(80%, 150px);
-}
-
-.construct-block div {
-    width: 100%;
-    padding-left: 8px;
+    padding: 15px;
 }
 
 .construct-block h3 { margin-top: 0; }
