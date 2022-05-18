@@ -1,3 +1,6 @@
+
+// ========= Save Prepared Constructs =========
+
 function clicked(element) {
     if (element.parentElement.classList.contains("prepared")) {
         element.parentElement.classList.remove("prepared");
@@ -21,17 +24,15 @@ else {
 // Create an array containing all elements defined as clickable
 let selector = document.querySelectorAll(".clickable");
 
-console.log(prepared);
-
 // Loop through all elements defined as clickable
-selector.forEach(function(div) {
+selector.forEach(function (div) {
     // Add an event listener to all these elements
-    div.addEventListener("click", function(ev) {
+    div.addEventListener("click", function () {
         // If event listener is triggered:
 
         localStorage.removeItem('aPrepared');   // Delete old cache data
         prepared = [];  // Empty array too
-        selector.forEach(function(elementById) {
+        selector.forEach(function (elementById) {
             if (elementById.classList.contains("prepared")) prepared.push(elementById.id);
         });
 
@@ -43,4 +44,24 @@ selector.forEach(function(div) {
         div.classList.add("prepared");
     }
 
+});
+
+
+
+// ========= Collapsable =========
+
+// Create an array containing all elements defined as collapsible
+let coll = document.querySelectorAll(".collapsible");
+console.log(coll);
+
+coll.forEach(function(div) {
+    div.addEventListener("clickReady", function() {
+        this.classList.toggle("activated");
+        let content = this.nextElementSibling;
+        if (content.style.maxHeight != null) {
+            content.style.maxHeight = null;
+        } else {
+            content.style.maxHeight = content.scrollHeight + "px";
+        }
+    });
 });
