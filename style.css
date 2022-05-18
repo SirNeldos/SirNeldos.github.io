@@ -121,11 +121,6 @@ tr:nth-child(odd) {
     background-color: var(--c-darker);
 }
 
-td:nth-child(3) {
-    text-align: left;
-    padding-left: 8px;
-}
-
 .bold {
     font-weight: bold;
 }
