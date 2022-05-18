@@ -15,9 +15,7 @@ body {
     margin: 0;
 }
 
-p {
-    margin: 3px 0 3px 6px;
-}
+p { margin: 3px 0 3px 6px; }
 
 h1, h2, h3 {
     font-family: times new roman,serif;
@@ -65,13 +63,8 @@ nav ul {
     text-decoration: none;
   }
   
-  nav li a:hover {
-    background-image: linear-gradient(var(--c-dark), var(--c-darker));
-  }
-  
-  nav .active {
-    background-image: linear-gradient(var(--c-dark), var(--c-accent)) !important;
-  }
+  nav li a:hover { background-image: linear-gradient(var(--c-dark), var(--c-darker)); }
+  nav .active { background-image: linear-gradient(var(--c-dark), var(--c-accent)) !important; }
 
 .chunk {
     margin: 0 5% 20px 5%;
@@ -106,23 +99,14 @@ table {
 
 .clear-table .bold { text-align: right; }
 
-td,
-th {
+td, th {
     text-align: center;
     padding: 8px 2px;
 }
 
-tr:nth-child(even) {
-    background-color: var(--c-dark);
-}
-
-tr:nth-child(odd) {
-    background-color: var(--c-darker);
-}
-
-.bold {
-    font-weight: bold;
-}
+tr:nth-child(even) { background-color: var(--c-dark); }
+tr:nth-child(odd) { background-color: var(--c-darker); }
+.bold { font-weight: bold; }
 
 #table-head {
     background-color: var(--c-accent);
@@ -135,9 +119,7 @@ tr:nth-child(odd) {
     border-right: 2px solid var(--c-light);
 }
 
-#bg-colour {
-    background-color: var(--c-background);
-}
+#bg-colour { background-color: var(--c-background); }
 
 .construct-block {
     background-color: var(--c-dark);
