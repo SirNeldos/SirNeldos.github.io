@@ -41,6 +41,13 @@ h3 {
     margin: 20px 0 2px 0;
 }
 
+h3:hover { cursor: grab; }
+h3:active { cursor: grabbing; }
+
+.prepared {
+    border: 2px solid var(--c-accent) !important;
+}
+
 nav ul {
     list-style-type: none;
     margin: 0;
@@ -125,6 +132,7 @@ tr:nth-child(odd) { background-color: var(--c-darker); }
     background-color: var(--c-dark);
     border-radius: 10px;
     padding: 15px;
+    border: 2px solid var(--c-dark);
 }
 
 .construct-block h3 { margin-top: 0; }
