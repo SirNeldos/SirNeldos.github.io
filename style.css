@@ -94,18 +94,17 @@ table {
     width: 100%;
 }
 
-.thin-table {
+.clear-table {
     border-collapse: collapse;
     margin: 20px auto auto auto;
-    width: 75%;
 }
 
-.thin-table td {
+.clear-table td {
     text-align: left;
     background-color: var(--c-background);
 }
 
-.thin-table .bold { text-align: right; }
+.clear-table .bold { text-align: right; }
 
 td,
 th {
