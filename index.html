@@ -20,452 +20,503 @@
 
     <h1>Brujo</h1>
 
-    <div class="chunk" id="basic-info">
-        <div>
-            <h3>Hit Points</h3>
-            <p><span class="bold">Hit Dice:</span> 1d6</p>
-            <p><span class="bold">Hit Points at 1st Level:</span> 6 + your Constitution modifier</p>
-            <p><span class="bold">Hit Points at Higher Levels:</span> 1d6 (or 4) + your Constitution modifier per Brujo
-                level after 1st</p>
-        </div>
-        <div>
-            <h3>Proficiencies</h3>
-            <p><span class="bold">Armour:</span> none</p>
-            <p><span class="bold">Weapons:</span> daggers, darts, slings, quarterstaffs</p>
-            <p><span class="bold">Tools:</span> herbalism kit</p>
-            <p><span class="bold">Saving Throws:</span> Constitution, Charisma</p>
-            <p><span class="bold">Skills:</span> Choose 2 from Arcana, Deception, Insight, Intimidation, Persuasion, and
-                Religion.</p>
-        </div>
-        <div>
-            <h3>Starting Equipment</h3>
-            <p>You start with the following items, plus anything provided by your background:</p>
-            <ul>
-                <li>A dagger and a herbalism kit</li>
-                <li>(a) A shortsword or (b) A quarterstaff</li>
-                <li>(a) A dungeoneer's pack or (b) An explorer's pack</li>
-            </ul>
+    <h2 class="chunk collapsible">Creation Stats</h2>
+    <div class="content">
+        <div class="chunk" id="basic-info">
+            <div>
+                <h3>Hit Points</h3>
+                <p><span class="bold">Hit Dice:</span> 1d6</p>
+                <p><span class="bold">Hit Points at 1st Level:</span> 6 + your Constitution modifier</p>
+                <p><span class="bold">Hit Points at Higher Levels:</span> 1d6 (or 4) + your Constitution modifier per
+                    Brujo
+                    level after 1st</p>
+            </div>
+            <div>
+                <h3>Proficiencies</h3>
+                <p><span class="bold">Armour:</span> none</p>
+                <p><span class="bold">Weapons:</span> daggers, darts, slings, quarterstaffs</p>
+                <p><span class="bold">Tools:</span> herbalism kit</p>
+                <p><span class="bold">Saving Throws:</span> Constitution, Charisma</p>
+                <p><span class="bold">Skills:</span> Choose 2 from Arcana, Deception, Insight, Intimidation, Persuasion,
+                    and
+                    Religion.</p>
+            </div>
+            <div>
+                <h3>Starting Equipment</h3>
+                <p>You start with the following items, plus anything provided by your background:</p>
+                <ul>
+                    <li>A dagger and a herbalism kit</li>
+                    <li>(a) A shortsword or (b) A quarterstaff</li>
+                    <li>(a) A dungeoneer's pack or (b) An explorer's pack</li>
+                </ul>
+            </div>
         </div>
     </div>
 
-    <div class="chunk" id="class-table">
-        <table>
-            <thead>
-                <tr>
-                    <th colspan="4" id="bg-colour"></th>
-                    <th colspan="9" id="bordered">Constructs per level</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr class="bold" id="table-head">
-                    <td>Level</td>
-                    <td>Prof.<br>Bonus</td>
-                    <td>Transmog<br>Points</td>
-                    <td>Cantrips<br>Known</td>
-                    <td>1st</td>
-                    <td>2nd</td>
-                    <td>3rd</td>
-                    <td>4th</td>
-                    <td>5th</td>
-                    <td>6th</td>
-                    <td>7th</td>
-                    <td>8th</td>
-                    <td>9th</td>
-                </tr>
-                <tr>
-                    <td>1st</td>
-                    <td>+2</td>
-                    <td>—</td>
-                    <td>4</td>
-                    <td>4</td>
-                    <td>—</td>
-                    <td>—</td>
-                    <td>—</td>
-                    <td>—</td>
-                    <td>—</td>
-                    <td>—</td>
-                    <td>—</td>
-                    <td>—</td>
-                </tr>
-                <tr>
-                    <td>2nd</td>
-                    <td>+2</td>
-                    <td>2</td>
-                    <td>4</td>
-                    <td>5</td>
-                    <td>—</td>
-                    <td>—</td>
-                    <td>—</td>
-                    <td>—</td>
-                    <td>—</td>
-                    <td>—</td>
-                    <td>—</td>
-                    <td>—</td>
-                </tr>
-                <tr>
-                    <td>3rd</td>
-                    <td>+2</td>
-                    <td>3</td>
-                    <td>4</td>
-                    <td>6</td>
-                    <td>2</td>
-                    <td>—</td>
-                    <td>—</td>
-                    <td>—</td>
-                    <td>—</td>
-                    <td>—</td>
-                    <td>—</td>
-                    <td>—</td>
-                </tr>
-                <tr>
-                    <td>4th</td>
-                    <td>+2</td>
-                    <td>4</td>
-                    <td>5</td>
-                    <td>6</td>
-                    <td>3</td>
-                    <td>—</td>
-                    <td>—</td>
-                    <td>—</td>
-                    <td>—</td>
-                    <td>—</td>
-                    <td>—</td>
-                    <td>—</td>
-                </tr>
-                <tr>
-                    <td>5th</td>
-                    <td>+3</td>
-                    <td>5</td>
-                    <td>5</td>
-                    <td>6</td>
-                    <td>4</td>
-                    <td>2</td>
-                    <td>—</td>
-                    <td>—</td>
-                    <td>—</td>
-                    <td>—</td>
-                    <td>—</td>
-                    <td>—</td>
-                </tr>
-                <tr>
-                    <td>6th</td>
-                    <td>+3</td>
-                    <td>6</td>
-                    <td>5</td>
-                    <td>6</td>
-                    <td>4</td>
-                    <td>3</td>
-                    <td>—</td>
-                    <td>—</td>
-                    <td>—</td>
-                    <td>—</td>
-                    <td>—</td>
-                    <td>—</td>
-                </tr>
-                <tr>
-                    <td>7th</td>
-                    <td>+3</td>
-                    <td>7</td>
-                    <td>5</td>
-                    <td>6</td>
-                    <td>4</td>
-                    <td>4</td>
-                    <td>2</td>
-                    <td>—</td>
-                    <td>—</td>
-                    <td>—</td>
-                    <td>—</td>
-                    <td>—</td>
-                </tr>
-                <tr>
-                    <td>8th</td>
-                    <td>+3</td>
-                    <td>8</td>
-                    <td>5</td>
-                    <td>6</td>
-                    <td>4</td>
-                    <td>4</td>
-                    <td>3</td>
-                    <td>—</td>
-                    <td>—</td>
-                    <td>—</td>
-                    <td>—</td>
-                    <td>—</td>
-                </tr>
-                <tr>
-                    <td>9th</td>
-                    <td>+4</td>
-                    <td>9</td>
-                    <td>5</td>
-                    <td>6</td>
-                    <td>4</td>
-                    <td>4</td>
-                    <td>4</td>
-                    <td>1</td>
-                    <td>—</td>
-                    <td>—</td>
-                    <td>—</td>
-                    <td>—</td>
-                </tr>
-                <tr>
-                    <td>10th</td>
-                    <td>+4</td>
-                    <td>10</td>
-                    <td>6</td>
-                    <td>6</td>
-                    <td>4</td>
-                    <td>4</td>
-                    <td>4</td>
-                    <td>2</td>
-                    <td>—</td>
-                    <td>—</td>
-                    <td>—</td>
-                    <td>—</td>
-                </tr>
-                <tr>
-                    <td>11th</td>
-                    <td>+4</td>
-                    <td>11</td>
-                    <td>6</td>
-                    <td>6</td>
-                    <td>4</td>
-                    <td>4</td>
-                    <td>4</td>
-                    <td>3</td>
-                    <td>1</td>
-                    <td>—</td>
-                    <td>—</td>
-                    <td>—</td>
-                </tr>
-                <tr>
-                    <td>12th</td>
-                    <td>+4</td>
-                    <td>12</td>
-                    <td>6</td>
-                    <td>6</td>
-                    <td>4</td>
-                    <td>4</td>
-                    <td>4</td>
-                    <td>3</td>
-                    <td>2</td>
-                    <td>—</td>
-                    <td>—</td>
-                    <td>—</td>
-                </tr>
-                <tr>
-                    <td>13th</td>
-                    <td>+5</td>
-                    <td>13</td>
-                    <td>6</td>
-                    <td>6</td>
-                    <td>4</td>
-                    <td>4</td>
-                    <td>4</td>
-                    <td>3</td>
-                    <td>3</td>
-                    <td>1</td>
-                    <td>—</td>
-                    <td>—</td>
-                </tr>
-                <tr>
-                    <td>14th</td>
-                    <td>+5</td>
-                    <td>14</td>
-                    <td>6</td>
-                    <td>6</td>
-                    <td>4</td>
-                    <td>4</td>
-                    <td>4</td>
-                    <td>3</td>
-                    <td>3</td>
-                    <td>2</td>
-                    <td>—</td>
-                    <td>—</td>
-                </tr>
-                <tr>
-                    <td>15th</td>
-                    <td>+5</td>
-                    <td>15</td>
-                    <td>6</td>
-                    <td>6</td>
-                    <td>4</td>
-                    <td>4</td>
-                    <td>4</td>
-                    <td>3</td>
-                    <td>3</td>
-                    <td>2</td>
-                    <td>1</td>
-                    <td>—</td>
-                </tr>
-                <tr>
-                    <td>16th</td>
-                    <td>+5</td>
-                    <td>16</td>
-                    <td>6</td>
-                    <td>6</td>
-                    <td>4</td>
-                    <td>4</td>
-                    <td>4</td>
-                    <td>3</td>
-                    <td>3</td>
-                    <td>2</td>
-                    <td>2</td>
-                    <td>—</td>
-                </tr>
-                <tr>
-                    <td>17th</td>
-                    <td>+6</td>
-                    <td>17</td>
-                    <td>7</td>
-                    <td>6</td>
-                    <td>4</td>
-                    <td>4</td>
-                    <td>4</td>
-                    <td>3</td>
-                    <td>3</td>
-                    <td>2</td>
-                    <td>2</td>
-                    <td>1</td>
-                </tr>
-                <tr>
-                    <td>18th</td>
-                    <td>+6</td>
-                    <td>18</td>
-                    <td>7</td>
-                    <td>6</td>
-                    <td>4</td>
-                    <td>4</td>
-                    <td>4</td>
-                    <td>3</td>
-                    <td>3</td>
-                    <td>2</td>
-                    <td>2</td>
-                    <td>2</td>
-                </tr>
-                <tr>
-                    <td>19th</td>
-                    <td>+6</td>
-                    <td>19</td>
-                    <td>7</td>
-                    <td>6</td>
-                    <td>4</td>
-                    <td>4</td>
-                    <td>4</td>
-                    <td>3</td>
-                    <td>3</td>
-                    <td>2</td>
-                    <td>2</td>
-                    <td>2</td>
-                </tr>
-                <tr>
-                    <td>20th</td>
-                    <td>+6</td>
-                    <td>20</td>
-                    <td>7</td>
-                    <td>6</td>
-                    <td>4</td>
-                    <td>4</td>
-                    <td>4</td>
-                    <td>3</td>
-                    <td>3</td>
-                    <td>2</td>
-                    <td>2</td>
-                    <td>2</td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
-
-    <h2 class="chunk collapsible">Level 1</h2>
-    <div class="chunk content">
-        <div>
-            <h2>Unworldly Tinkerer - lvl. 1</h2>
-            <p>You have learnt how to transmute flora and fauna into unworldly creations. This is your way of harnessing the magic that flows in your blood. To observers, you don't appear to be casting spells, but rather utilising alien creatures that manifest magical feats. These Constructs are parasitic to your arcane energy and will wither and die when away from you for an extended period of time.</p>
-            <p>At 1st level, you gain proficiency with Herbalism Kit, which is required in the creation of Constructs. If you already have proficiency, you instead have expertise with Herbalism Kit.</p>
-        </div>
-        <div>
-            <h3>Cantrips</h3>
-            <p>At 1st level, you have perfected four unworldly Constructs, represented as Cantrips and are not destroyed upon use. You can select these from the Sorcerer and Druid Cantrips Lists.
-            </p>
-        </div>
-        <div>
-            <h3>Preparing and Creating Constructs</h3>
-            <p>The Constructs Table shows how many Constructs you can have prepared at any given time and at any given level. Upon using one of these Constructs, it is expended and destroyed.</p>
-            <p>It requires 30 minutes and 5 gold per level of the spell, to make one of these Constructs. The gold represents the price of procuring the necessary ingredients, these can otherwise be appropriately harvested.</p>
-            <p>The Brujo has an innate understanding of how to make these constructs knowing Recipes (Spells) equal to the number of prepared Constructs Table plus 2 from the Sorcerer and Druid Spell Lists. These cannot be unlearned or replaced at a later date.</p>
-        </div>
-        <div>
-            <h3>Spellcasting Ability</h3>
-            <p>Charisma is your spellcasting ability for your Constructs, since the power of your magic relies on your ability to project your will into these creatures. You use your Charisma whenever a spell refers to your spellcasting ability. In addition, you use your Charisma modifier when setting the saving throw DC for a Construct when making an attack roll with one.</p>
-            <table class="clear-table">
-                <tbody>
+    <h2 class="chunk collapsible">Brujo Table</h2>
+    <div class="content">
+        <div class="chunk" id="class-table">
+            <table>
+                <thead>
                     <tr>
-                        <td class="bold">Spell Save DC = </td>
-                        <td>8 + your proficiency bonus + your Charisma modifier</td>
+                        <th colspan="4" id="bg-colour"></th>
+                        <th colspan="9" id="bordered">Constructs per level</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="bold" id="table-head">
+                        <td>Level</td>
+                        <td>Prof.<br>Bonus</td>
+                        <td>Transmog<br>Points</td>
+                        <td>Cantrips<br>Known</td>
+                        <td>1st</td>
+                        <td>2nd</td>
+                        <td>3rd</td>
+                        <td>4th</td>
+                        <td>5th</td>
+                        <td>6th</td>
+                        <td>7th</td>
+                        <td>8th</td>
+                        <td>9th</td>
                     </tr>
                     <tr>
-                        <td class="bold">Spell Attack Modifier = </td>
-                        <td>Your proficiency bonus + your Charisma modifier</td>
+                        <td>1st</td>
+                        <td>+2</td>
+                        <td>—</td>
+                        <td>4</td>
+                        <td>4</td>
+                        <td>—</td>
+                        <td>—</td>
+                        <td>—</td>
+                        <td>—</td>
+                        <td>—</td>
+                        <td>—</td>
+                        <td>—</td>
+                        <td>—</td>
+                    </tr>
+                    <tr>
+                        <td>2nd</td>
+                        <td>+2</td>
+                        <td>2</td>
+                        <td>4</td>
+                        <td>5</td>
+                        <td>—</td>
+                        <td>—</td>
+                        <td>—</td>
+                        <td>—</td>
+                        <td>—</td>
+                        <td>—</td>
+                        <td>—</td>
+                        <td>—</td>
+                    </tr>
+                    <tr>
+                        <td>3rd</td>
+                        <td>+2</td>
+                        <td>3</td>
+                        <td>4</td>
+                        <td>6</td>
+                        <td>2</td>
+                        <td>—</td>
+                        <td>—</td>
+                        <td>—</td>
+                        <td>—</td>
+                        <td>—</td>
+                        <td>—</td>
+                        <td>—</td>
+                    </tr>
+                    <tr>
+                        <td>4th</td>
+                        <td>+2</td>
+                        <td>4</td>
+                        <td>5</td>
+                        <td>6</td>
+                        <td>3</td>
+                        <td>—</td>
+                        <td>—</td>
+                        <td>—</td>
+                        <td>—</td>
+                        <td>—</td>
+                        <td>—</td>
+                        <td>—</td>
+                    </tr>
+                    <tr>
+                        <td>5th</td>
+                        <td>+3</td>
+                        <td>5</td>
+                        <td>5</td>
+                        <td>6</td>
+                        <td>4</td>
+                        <td>2</td>
+                        <td>—</td>
+                        <td>—</td>
+                        <td>—</td>
+                        <td>—</td>
+                        <td>—</td>
+                        <td>—</td>
+                    </tr>
+                    <tr>
+                        <td>6th</td>
+                        <td>+3</td>
+                        <td>6</td>
+                        <td>5</td>
+                        <td>6</td>
+                        <td>4</td>
+                        <td>3</td>
+                        <td>—</td>
+                        <td>—</td>
+                        <td>—</td>
+                        <td>—</td>
+                        <td>—</td>
+                        <td>—</td>
+                    </tr>
+                    <tr>
+                        <td>7th</td>
+                        <td>+3</td>
+                        <td>7</td>
+                        <td>5</td>
+                        <td>6</td>
+                        <td>4</td>
+                        <td>4</td>
+                        <td>2</td>
+                        <td>—</td>
+                        <td>—</td>
+                        <td>—</td>
+                        <td>—</td>
+                        <td>—</td>
+                    </tr>
+                    <tr>
+                        <td>8th</td>
+                        <td>+3</td>
+                        <td>8</td>
+                        <td>5</td>
+                        <td>6</td>
+                        <td>4</td>
+                        <td>4</td>
+                        <td>3</td>
+                        <td>—</td>
+                        <td>—</td>
+                        <td>—</td>
+                        <td>—</td>
+                        <td>—</td>
+                    </tr>
+                    <tr>
+                        <td>9th</td>
+                        <td>+4</td>
+                        <td>9</td>
+                        <td>5</td>
+                        <td>6</td>
+                        <td>4</td>
+                        <td>4</td>
+                        <td>4</td>
+                        <td>1</td>
+                        <td>—</td>
+                        <td>—</td>
+                        <td>—</td>
+                        <td>—</td>
+                    </tr>
+                    <tr>
+                        <td>10th</td>
+                        <td>+4</td>
+                        <td>10</td>
+                        <td>6</td>
+                        <td>6</td>
+                        <td>4</td>
+                        <td>4</td>
+                        <td>4</td>
+                        <td>2</td>
+                        <td>—</td>
+                        <td>—</td>
+                        <td>—</td>
+                        <td>—</td>
+                    </tr>
+                    <tr>
+                        <td>11th</td>
+                        <td>+4</td>
+                        <td>11</td>
+                        <td>6</td>
+                        <td>6</td>
+                        <td>4</td>
+                        <td>4</td>
+                        <td>4</td>
+                        <td>3</td>
+                        <td>1</td>
+                        <td>—</td>
+                        <td>—</td>
+                        <td>—</td>
+                    </tr>
+                    <tr>
+                        <td>12th</td>
+                        <td>+4</td>
+                        <td>12</td>
+                        <td>6</td>
+                        <td>6</td>
+                        <td>4</td>
+                        <td>4</td>
+                        <td>4</td>
+                        <td>3</td>
+                        <td>2</td>
+                        <td>—</td>
+                        <td>—</td>
+                        <td>—</td>
+                    </tr>
+                    <tr>
+                        <td>13th</td>
+                        <td>+5</td>
+                        <td>13</td>
+                        <td>6</td>
+                        <td>6</td>
+                        <td>4</td>
+                        <td>4</td>
+                        <td>4</td>
+                        <td>3</td>
+                        <td>3</td>
+                        <td>1</td>
+                        <td>—</td>
+                        <td>—</td>
+                    </tr>
+                    <tr>
+                        <td>14th</td>
+                        <td>+5</td>
+                        <td>14</td>
+                        <td>6</td>
+                        <td>6</td>
+                        <td>4</td>
+                        <td>4</td>
+                        <td>4</td>
+                        <td>3</td>
+                        <td>3</td>
+                        <td>2</td>
+                        <td>—</td>
+                        <td>—</td>
+                    </tr>
+                    <tr>
+                        <td>15th</td>
+                        <td>+5</td>
+                        <td>15</td>
+                        <td>6</td>
+                        <td>6</td>
+                        <td>4</td>
+                        <td>4</td>
+                        <td>4</td>
+                        <td>3</td>
+                        <td>3</td>
+                        <td>2</td>
+                        <td>1</td>
+                        <td>—</td>
+                    </tr>
+                    <tr>
+                        <td>16th</td>
+                        <td>+5</td>
+                        <td>16</td>
+                        <td>6</td>
+                        <td>6</td>
+                        <td>4</td>
+                        <td>4</td>
+                        <td>4</td>
+                        <td>3</td>
+                        <td>3</td>
+                        <td>2</td>
+                        <td>2</td>
+                        <td>—</td>
+                    </tr>
+                    <tr>
+                        <td>17th</td>
+                        <td>+6</td>
+                        <td>17</td>
+                        <td>7</td>
+                        <td>6</td>
+                        <td>4</td>
+                        <td>4</td>
+                        <td>4</td>
+                        <td>3</td>
+                        <td>3</td>
+                        <td>2</td>
+                        <td>2</td>
+                        <td>1</td>
+                    </tr>
+                    <tr>
+                        <td>18th</td>
+                        <td>+6</td>
+                        <td>18</td>
+                        <td>7</td>
+                        <td>6</td>
+                        <td>4</td>
+                        <td>4</td>
+                        <td>4</td>
+                        <td>3</td>
+                        <td>3</td>
+                        <td>2</td>
+                        <td>2</td>
+                        <td>2</td>
+                    </tr>
+                    <tr>
+                        <td>19th</td>
+                        <td>+6</td>
+                        <td>19</td>
+                        <td>7</td>
+                        <td>6</td>
+                        <td>4</td>
+                        <td>4</td>
+                        <td>4</td>
+                        <td>3</td>
+                        <td>3</td>
+                        <td>2</td>
+                        <td>2</td>
+                        <td>2</td>
+                    </tr>
+                    <tr>
+                        <td>20th</td>
+                        <td>+6</td>
+                        <td>20</td>
+                        <td>7</td>
+                        <td>6</td>
+                        <td>4</td>
+                        <td>4</td>
+                        <td>4</td>
+                        <td>3</td>
+                        <td>3</td>
+                        <td>2</td>
+                        <td>2</td>
+                        <td>2</td>
                     </tr>
                 </tbody>
             </table>
         </div>
     </div>
 
-    <div class="chunk">
-        <div>
-            <h2>Unworldly Origin - lvl. 1</h2>
-            <p>You have been touched by an alien entity and bestowed a fragment of their power. You have been fundamentally changed by this, which awakens powerful magical abilities inside you, often altering your appearance in some way.</p>
-            <p>At 1st level, you choose one of the cleric class's divine domains. You add that domain spells for 1st-level clerics to your known spells. These spells do not count against the number of spells you can know, and they are considered to be Construct Recipes for you. When you reach 3rd, 5th, 7th, and 9th levels in the Brujo class, you likewise learn your domain's spells that become available at those levels.</p>
+    <h2 class="chunk collapsible">Level 1</h2>
+    <div class="content">
+        <div class="chunk">
+            <div>
+                <h2>Unworldly Tinkerer - lvl. 1</h2>
+                <p>You have learnt how to transmute flora and fauna into unworldly creations. This is your way of
+                    harnessing the magic that flows in your blood. To observers, you don't appear to be casting spells,
+                    but rather utilising alien creatures that manifest magical feats. These Constructs are parasitic to
+                    your arcane energy and will wither and die when away from you for an extended period of time.</p>
+                <p>At 1st level, you gain proficiency with Herbalism Kit, which is required in the creation of
+                    Constructs. If you already have proficiency, you instead have expertise with Herbalism Kit.</p>
+            </div>
+            <div>
+                <h3>Cantrips</h3>
+                <p>At 1st level, you have perfected four unworldly Constructs, represented as Cantrips and are not
+                    destroyed upon use. You can select these from the Sorcerer and Druid Cantrips Lists.
+                </p>
+            </div>
+            <div>
+                <h3>Preparing and Creating Constructs</h3>
+                <p>The Constructs Table shows how many Constructs you can have prepared at any given time and at any
+                    given level. Upon using one of these Constructs, it is expended and destroyed.</p>
+                <p>It requires 30 minutes and 5 gold per level of the spell, to make one of these Constructs. The gold
+                    represents the price of procuring the necessary ingredients, these can otherwise be appropriately
+                    harvested.</p>
+                <p>The Brujo has an innate understanding of how to make these constructs knowing Recipes (Spells) equal
+                    to the number of prepared Constructs Table plus 2 from the Sorcerer and Druid Spell Lists. These
+                    cannot be unlearned or replaced at a later date.</p>
+            </div>
+            <div>
+                <h3>Spellcasting Ability</h3>
+                <p>Charisma is your spellcasting ability for your Constructs, since the power of your magic relies on
+                    your ability to project your will into these creatures. You use your Charisma whenever a spell
+                    refers to your spellcasting ability. In addition, you use your Charisma modifier when setting the
+                    saving throw DC for a Construct when making an attack roll with one.</p>
+                <table class="clear-table">
+                    <tbody>
+                        <tr>
+                            <td class="bold">Spell Save DC = </td>
+                            <td>8 + your proficiency bonus + your Charisma modifier</td>
+                        </tr>
+                        <tr>
+                            <td class="bold">Spell Attack Modifier = </td>
+                            <td>Your proficiency bonus + your Charisma modifier</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
         </div>
-        <div>
-            <h3>Bonus Proficiency</h3>
-            <p>At 1st level, you gain two of the following:</p>
+
+        <div class="chunk">
+            <div>
+                <h2>Unworldly Origin - lvl. 1</h2>
+                <p>You have been touched by an alien entity and bestowed a fragment of their power. You have been
+                    fundamentally changed by this, which awakens powerful magical abilities inside you, often altering
+                    your appearance in some way.</p>
+                <p>At 1st level, you choose one of the cleric class's divine domains. You add that domain spells for
+                    1st-level clerics to your known spells. These spells do not count against the number of spells you
+                    can know, and they are considered to be Construct Recipes for you. When you reach 3rd, 5th, 7th, and
+                    9th levels in the Brujo class, you likewise learn your domain's spells that become available at
+                    those levels.</p>
+            </div>
+            <div>
+                <h3>Bonus Proficiency</h3>
+                <p>At 1st level, you gain two of the following:</p>
                 <ul>
                     <li>An additional Brujo skill available at character creation.</li>
                     <li>An additional Brujo skill available at character creation.</li>
                     <li>Proficiency with Shortswords and Scimitars.</li>
                     <li>Proficiency with Light Armour.</li>
                 </ul>
-                
+
+            </div>
         </div>
     </div>
 
-    <div class="chunk">
-        <div>
-            <h2>Transmogrification Initiate - lvl. 2</h2>
-            <p>At 2nd level, you tap into the creative forces that reside within yours. This force is represented by your Transmog Points, which allow you to modify your magical effects.</p>
+    <h2 class="chunk collapsible">Level 2</h2>
+    <div class="content">
+        <div class="chunk">
+            <div>
+                <h2>Transmogrification Initiate - lvl. 2</h2>
+                <p>At 2nd level, you tap into the creative forces that reside within yours. This force is represented by
+                    your Transmog Points, which allow you to modify your magical effects.</p>
+            </div>
+            <div>
+                <h3>Transmog Points</h3>
+                <p>You have 2 Transmog Points initially, gaining one additional point every time you level up, to a
+                    maximum
+                    of 20 at level 20. You can never have more Transmog Points than shown on the table for your level.
+                    You
+                    regain all spent Transmog Points when you finish a long rest.</p>
+            </div>
+            <div>
+                <h3>Reassimilate</h3>
+                <p>You can destroy one of your Constructs, reabsorbing their potential energy. You regain the Constructs
+                    Spell level plus 1 Transmog Points.</p>
+            </div>
         </div>
-        <div>
-            <h3>Transmog Points</h3>
-            <p>You have 2 Transmog Points initially, gaining one additional point every time you level up, to a maximum of 20 at level 20. You can never have more Transmog Points than shown on the table for your level. You regain all spent Transmog Points when you finish a long rest.</p>
-        </div>
-        <div>
-            <h3>Reassimilate</h3>
-            <p>You can destroy one of your Constructs, reabsorbing their potential energy. You regain the Constructs Spell level plus 1 Transmog Points.</p>
-        </div>
-    </div>
 
-    <div class="chunk">
-        <div>
-            <h2>Transmogrification Options - lvl. 2</h2>
-            <p>When you gain access to the Transmogrification Initiate Feature, you gain access to the following Initiate options for spending your Transmog Points.</p>
-        </div>
-        <div>
-            <h3>Intervening Gaze</h3>
-            <p>When you make an ability check on your turn, you can spend 2 Transmog Points to gain advantage on the check.</p>
-        </div>
-        <div>
-            <h3>Otherworldly Weapon</h3>
-            <p>As an action, you can touch one non-magical weapon and spend 2 Transmog Points to imbue it with magic for 1 minute. For the duration, the weapon is considered magical for the purpose of overcoming immunity and resistance to non-magical attacks. It grows unworldly features that repulse most.</p>
-        </div>
-        <div>
-            <h3>Unworldly Fortitude</h3>
-            <p>As an action, you can spend any number of Transmog Points. Each point expended grands a d4, or your Constitution Modifier, whichever is higher. You gain a number of temporary hit points equal to the total.</p>
+        <div class="chunk">
+            <div>
+                <h2>Transmogrification Options - lvl. 2</h2>
+                <p>When you gain access to the Transmogrification Initiate Feature, you gain access to the following
+                    Initiate options for spending your Transmog Points.</p>
+            </div>
+            <div>
+                <h3>Intervening Gaze</h3>
+                <p>When you make an ability check on your turn, you can spend 2 Transmog Points to gain advantage on the
+                    check.</p>
+            </div>
+            <div>
+                <h3>Otherworldly Weapon</h3>
+                <p>As an action, you can touch one non-magical weapon and spend 2 Transmog Points to imbue it with magic
+                    for
+                    1 minute. For the duration, the weapon is considered magical for the purpose of overcoming immunity
+                    and
+                    resistance to non-magical attacks. It grows unworldly features that repulse most.</p>
+            </div>
+            <div>
+                <h3>Unworldly Fortitude</h3>
+                <p>As an action, you can spend any number of Transmog Points. Each point expended grands a d4, or your
+                    Constitution Modifier, whichever is higher. You gain a number of temporary hit points equal to the
+                    total.</p>
+            </div>
         </div>
     </div>
 
 </body>
+
+<footer>
+    <div></div>
+    <p id="footer-text">A custom d&d class by nlg</p>
+</footer>
 
 <script src="script.js"></script>
 

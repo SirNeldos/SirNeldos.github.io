@@ -15,6 +15,22 @@ body {
     margin: 0;
 }
 
+footer {
+    background-color: var(--c-dark);
+    height: 20vw;
+}
+
+footer div {
+    background-image: linear-gradient(var(--c-background), var(--c-dark));
+    width: 100%;
+    height: 4vw;
+}
+
+footer p {
+    text-align: center;
+    margin-top: 6vw;
+}
+
 p { margin: 3px 0 3px 6px; }
 
 h1, h2, h3 {
@@ -157,12 +173,12 @@ tr:nth-child(odd) { background-color: var(--c-darker); }
 }
 
 .activated, .collapsible:hover {
-  background-color: #555;
+  background-color: var(--c-dark);
 }
 
 .collapsible:after {
   content: "\002B";
-  color: white;
+  color: var(--c-accent);
   font-weight: bold;
   float: right;
   margin-left: 5px;
@@ -173,9 +189,7 @@ tr:nth-child(odd) { background-color: var(--c-darker); }
 }
 
 .content {
-  padding: 0 18px;
   max-height: 0;
   overflow: hidden;
   transition: max-height 0.2s ease-out;
-  background-color: #f1f1f1;
 }
