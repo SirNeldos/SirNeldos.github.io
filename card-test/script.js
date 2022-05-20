@@ -1,3 +1,22 @@
+// ========= Load Prepared Constructs =========
+
+// Retrieve saved data on prepared constructs
+prepared = localStorage.getItem('aPrepared')
+
+// If there is no save
+if (prepared === null) {
+    localStorage.setItem('aPrepared', []); // Create a save file
+    prepared = []; // Create an empty array for data to be stored
+}
+
+// If there is a save file already
+else {
+    prepared = prepared.split(",") // Load the existing array
+}
+
+console.log(prepared);
+
+
 // ========= Collapsable =========
 
 // Create an array containing all elements defined as collapsible
@@ -26,25 +45,41 @@ collapsible.forEach(function (element) {
 
 
 // ========== Prepared Constructs ===========
-let preparedAbove = document.getElementById('prepared-above');
-
-collapsible.forEach(function(my) {
+collapsible.forEach(function (my) {
     let wand = my.nextElementSibling.querySelector('.preparable');
-    wand.addEventListener("click", function() {
+    wand.addEventListener("click", function () {
+        // Update styles to reflect the Construct is prepared
         my.classList.toggle("prepared-top");
         my.nextElementSibling.classList.toggle("prepared-bottom");
 
-        document.body.insertBefore(my.parentElement, preparedAbove);
+        // Delete old cache data
+        localStorage.removeItem('aPrepared');
+        prepared = [];
+
+        // Repopulate array w/ new data
+        collapsible.forEach(function (m) {
+            if (m.classList.contains("prepared-top")) { prepared.push(m.textContent); }
+        });
+
+        // Save new array to cache
+        localStorage.setItem('aPrepared', prepared);
     });
+
+    // Ensure all prepared items show on page-load
+    if (prepared.indexOf(my.textContent) != -1) {
+        my.classList.add("prepared-top");
+        my.nextElementSibling.classList.add("prepared-bottom");
+        my.nextElementSibling.style.borderBottom = '0px';
+    }
 });
 
 
 
 // ========== Show Spell ===========
-collapsible.forEach(function(my) {
+collapsible.forEach(function (my) {
     let eye = my.nextElementSibling.querySelector('.view-spell');
-    eye.addEventListener("click", function() {
-        
+    eye.addEventListener("click", function () {
+
         // Toggle hidden content
         my.nextElementSibling.querySelector('.construct-info').classList.toggle('hidden');
         my.nextElementSibling.querySelector('.spell-info').classList.toggle('hidden');
@@ -52,3 +87,10 @@ collapsible.forEach(function(my) {
         my.nextElementSibling.style.maxHeight = my.nextElementSibling.scrollHeight + "px"
     });
 });
+
+
+
+
+
+
+
