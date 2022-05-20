@@ -25,11 +25,30 @@ collapsible.forEach(function (element) {
 
 
 
-// ========== Border Prepared ===========
+// ========== Prepared Constructs ===========
+let preparedAbove = document.getElementById('prepared-above');
+
 collapsible.forEach(function(my) {
-    let eye = my.nextElementSibling.querySelector('.preparable');
-    eye.addEventListener("click", function() {
+    let wand = my.nextElementSibling.querySelector('.preparable');
+    wand.addEventListener("click", function() {
         my.classList.toggle("prepared-top");
         my.nextElementSibling.classList.toggle("prepared-bottom");
+
+        document.body.insertBefore(my.parentElement, preparedAbove);
+    });
+});
+
+
+
+// ========== Show Spell ===========
+collapsible.forEach(function(my) {
+    let eye = my.nextElementSibling.querySelector('.view-spell');
+    eye.addEventListener("click", function() {
+        
+        // Toggle hidden content
+        my.nextElementSibling.querySelector('.construct-info').classList.toggle('hidden');
+        my.nextElementSibling.querySelector('.spell-info').classList.toggle('hidden');
+        // Resize element to suit new content
+        my.nextElementSibling.style.maxHeight = my.nextElementSibling.scrollHeight + "px"
     });
 });
