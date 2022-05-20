@@ -1,0 +1,110 @@
+:root {
+    --c-background: rgb(41, 47, 52);
+    --c-dark: rgb(53, 62, 69);
+    --c-darker: rgb(45, 52, 57);
+    --c-light: rgb(208, 208, 192);
+    --c-accent: rgb(43, 149, 82);
+    --c-medium: rgb(124, 127, 122);
+}
+
+body {
+    background-color: var(--c-background);
+    color: var(--c-light);
+    font-size: 100%;
+    font-family: arial, sans-serif;
+    margin: 0;
+    padding-top: 10vw;
+}
+
+.options {
+    margin: 16px 0;
+}
+
+.options span {
+    display: inline-block;
+    margin-right: 16px;
+    cursor: pointer;
+}
+
+object {
+    height: 28px;
+    width: 28px;
+    display: block;
+    pointer-events: none;
+    z-index: 1; z-index: -1;
+}
+
+object:last-child {
+    color: var(--c-accent);
+}
+
+.collapsible {
+    background-color: var(--c-darker);
+    cursor: pointer;
+    padding: 15px;
+    text-align: left;
+    color: var(--c-accent);
+    margin: 0 10vw;
+    border-radius: 10px;
+    border: 2px solid var(--c-darker);
+}
+
+.collapsible h2 {
+    margin: 0 0 5px 0;
+}
+
+.activated,
+.collapsible:hover {
+    background-color: var(--c-dark);
+}
+
+.activated {
+    border-radius: 10px 10px 0 0;
+}
+
+.collapsible:after {
+    content: "\002B";
+    font-weight: bold;
+    float: right;
+    margin-left: 5px;
+}
+
+.activated:after {
+    content: "\2212";
+}
+
+.content {
+    background-color: var(--c-darker);
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.2s ease-out;
+    margin: 0 10vw 2vw 10vw;
+    padding: 0 15px 0 15px;
+    border-radius: 0 0 10px 10px;
+    border-left: 2px solid var(--c-darker);
+    border-right: 2px solid var(--c-darker);
+}
+
+.content h4 {
+    margin-bottom: 0;
+}
+
+.content ul {
+    margin: 0;
+    padding: 4px 15px 0 20px;
+}
+
+.prepared-top {
+    border: 2px solid var(--c-accent);
+}
+
+.prepared-top.activated {
+    border-bottom: 1px dashed var(--c-accent);
+    padding-bottom: 16px;
+}
+
+.prepared-bottom {
+    border-left: 2px solid var(--c-accent);
+    border-right: 2px solid var(--c-accent);
+    border-bottom: 2px solid var(--c-accent);
+}
