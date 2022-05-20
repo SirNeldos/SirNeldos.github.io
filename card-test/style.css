@@ -132,3 +132,7 @@ hr {
 .at-higher-levels {
     margin-top: 12px !important;
 }
+
+.at-higher-levels span {
+    font-style: italic;
+}
