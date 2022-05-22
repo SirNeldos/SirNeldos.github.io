@@ -128,6 +128,7 @@ nav .active {
 table {
     font-size: min(2vw, 1em);
     width: 100%;
+    padding-top: 10px;
 }
 
 .clear-table {
@@ -248,7 +249,7 @@ tr:nth-child(odd) {
 }
 
 #no-padding {
-    padding: 10px 0 0 0;
+    padding: 0;
 }
 
 .content h4 {
@@ -302,7 +303,7 @@ object:last-child {
     display: none;
 }
 
-.spell-info p {
+.content p {
     margin: 4px 0;
 }
 
