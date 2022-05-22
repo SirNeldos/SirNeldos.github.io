@@ -16,6 +16,7 @@ body {
     overflow: scroll;
     -ms-overflow-style: none; /* IE and Edge */
     scrollbar-width: none; /* Firefox */
+    height: 100vh;
 }
 
 body::-webkit-scrollbar {
@@ -25,6 +26,7 @@ body::-webkit-scrollbar {
 footer {
     background-color: var(--c-dark);
     height: 20vw;
+    margin-top: 10vw;
 }
 
 footer div {
@@ -109,7 +111,7 @@ nav .active {
 }
 
 .chunk {
-    margin: 0 4vw 20px 4vw;
+    margin: 0 2vw 20px 2vw;
 }
 
 #basic-info {
@@ -223,7 +225,7 @@ tr:nth-child(odd) {
 }
 
 .activated:after {
-    content: "\2212";
+    content: "\2212" !important;
 }
 
 .collapsible:after {
@@ -243,6 +245,10 @@ tr:nth-child(odd) {
     border-radius: 0 0 10px 10px;
     border-left: 2px solid var(--c-darker);
     border-right: 2px solid var(--c-darker);
+}
+
+#no-padding {
+    padding: 10px 0 0 0;
 }
 
 .content h4 {
