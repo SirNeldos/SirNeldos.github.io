@@ -326,3 +326,9 @@ hr {
 .at-higher-levels span {
     font-style: italic;
 }
+
+.light-text {
+    color: var(--c-light);
+    padding-left: 5vw;
+    border-bottom: 2px solid var(--c-light);
+}
