@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Ingredients</title>
+</head>
+
+<body>
+
+    <div class="heading">
+        <h1>Ingredients</h1>
+        <p class="subheading">Insert a new ingredient.</p>
+    </div>
+
+    <!-- SCHOOL LOOKUP -->
+    <div class="block">
+
+        <h2 class="dropdown">Schools of Magic</h2>
+
+        <table class="hidden">
+            <tr>
+                <th>School</th>
+                <th>Description</th>
+                <th>Example</th>
+            </tr>
+            <tr>
+                <td>Abjuration</td>
+                <td>Magical spells and effects within the school of abjuration are primarily designed for protection and shielding.</td>
+                <td>Something that protects -- eg. Shield, turtle's shell, exoskeleton, bark</td>
+            </tr>
+            <tr>
+                <td>Conjuration</td>
+                <td>The School of Conjuration deals with creating objects and creatures, or making them disappear.</td>
+                <td>Something that makes or takes away -- eg. ash, sperm, lies</td>
+            </tr>
+            <tr>
+                <td>Divination</td>
+                <td>The magical School of Divination is centred around revealing and granting knowledge and information to the caster. Useful for reading ancient scripts, identifying magical items, and seeing invisible enemies.</td>
+                <td>Something constructed for faith -- eg. A statue, symbol, candle</td>
+            </tr>
+            <tr>
+                <td>Enchantment</td>
+                <td>Spells within the School of Enchantment are designed to manipulate the mental state of the target. This entire school is very similar to hypnotism, where the affected creature may act completely differently than how they normally behave.</td>
+                <td>Something that charms -- eg. Songbird, tongue, mirror, rose oil</td>
+            </tr>
+            <tr>
+                <td>Evocation</td>
+                <td>Casters within the school of evocation unleash a raw magical energy upon their enemies. Whether it be flames, ice, or pure arcane energy: evocation spellcasters are here to deal damage and chew gum… and they're all out of gum. </td>
+                <td>Something imbued with elemental energy -- eg. Spring water, lightning struck timber</td>
+            </tr>
+            <tr>
+                <td>Illusion</td>
+                <td>The School of Illusion is concerned with manipulating the various senses of people and creatures. This could be vision, hearing, or other various senses such as body temperature. </td>
+                <td>Something that deceives -- eg. Butterfly wings, oil, chameleon, mockingbird</td>
+            </tr>
+            <tr>
+                <td>Necromancy</td>
+                <td>In general, think of spells within the School of Necromancy as manipulating the ebb and flow of different creatures' “life energy”, or the balance of energy between life and death. This can come across in the form of helping resurrection, or draining necrotic damage. </td>
+                <td>Something that embodies life and/or death -- eg. A heart, blood, something alive</td>
+            </tr>
+            <tr>
+                <td>Transmutation</td>
+                <td>Casters who study within the School of Transmutation are able to manipulate the physical properties of both items and people. This could be something simple - such as turning copper into gold - or could be an advanced spell that turns you into a newt.</td>
+                <td>Something that embodies change -- eg. A cocoon, maggot, alloy metal, fruit</td>
+            </tr>
+        </table>
+    </div>
+
+    <!-- INGREDIENT BUILDER -->
+    <div class="block" id="ingredient-block">
+
+        <h2 class="dropdown">Ingredient Builder</h2>
+
+        <table class="hidden" id="ingredients-table">
+
+            <!-- Name Input -->
+            <tr>
+                <td><label for="name">Ingredient Name:</label></td>
+                <td><input id="name" name="name" type="text"></td>
+            </tr>
+
+            <!-- Alive Input -->
+            <tr>
+                <td><label for="alive">Soul precent:</label></td>
+                <td><input id="alive" name="alive" type="checkbox"></td>
+            </tr>
+
+            <!-- Quantity Input -->
+            <tr>
+                <td><label for="quantity">Quantity:</label></td>
+                <td><input id="quantity" name="quantity" type="number" value="1"></td>
+            </tr>
+
+            <!-- Rarity Dropdown -->
+            <tr class="school-active">
+                <td><label for="rarity">Rarity Rating:</label></td>
+                <td>
+                    <select value="common" name="rarity" id="rarity">
+                        <option class="default" value="common">common</option>
+                        <option                 value="uncommon">uncommon</option>
+                        <option                 value="rare">rare</option>
+                        <option                 value="epic">epic</option>
+                        <option                 value="unheard">unheard of</option>
+                    </select>
+                </td>
+            </tr>
+
+            <!-- School Dropdown -->
+            <tr>
+                <td><label for="school">School:</label></td>
+                <td>
+                    <select value="none" name="school" id="school">
+                        <option class="default" value="none">none</option>
+                        <option value="abj">abjuration</option>
+                        <option value="con">conjuration</option>
+                        <option value="div">divination</option>
+                        <option value="enc">enchantment</option>
+                        <option value="evo">evocation</option>
+                        <option value="ill">illusion</option>
+                        <option value="nec">necromancy</option>
+                        <option value="tra">transmutation</option>
+                    </select>
+                </td>
+            </tr>
+
+            <!-- Effect Dropdown -->
+            <tr class="school-active">
+                <td><label for="effect">Effect:</label></td>
+                <td>
+                    <select value="none" name="effect" id="effect">
+                        <option class="default"                     value="none">none</option>
+                        <option class="con evo nec"                 value="buf">buff</option>
+                        <option class="abj div ill tra"             value="dam">damage</option>
+                        <option class="div evo nec"                 value="deb">debuff</option>
+                        <option class="abj con div enc ill tra"     value="hea">healing</option>
+                        <option class="con div evo ill"             value="res">resistance</option>
+                        <option class="div enc evo ill nec tra"     value="shi">shielding</option>
+                    </select>
+                </td>
+            </tr>
+
+            <!-- Condition Inflicted -->
+            <tr class="school-active">
+                <td><label for="condition">Condition:</label></td>
+                <td>
+                    <select value="none" name="condition" id="condition">
+                        <option class="default"             value="none">none</option>
+                        <option class="buf dam hea res shi" value="blinded">blinded</option>
+                        <option class="buf dam hea res shi" value="charmed">charmed</option>
+                        <option class="buf dam hea res shi" value="deafened">deafened</option>
+                        <option class="buf dam hea res shi" value="frightened">frightened</option>
+                        <option class="buf dam hea res shi" value="grappled">grappled</option>
+                        <option class="buf dam hea res shi" value="incapacitated">incapacitated</option>
+                        <option class="deb dam hea res shi" value="invisible">invisible</option>
+                        <option class="buf dam hea res shi" value="paralysed">paralysed</option>
+                        <option class="buf dam hea res shi" value="petrified">petrified</option>
+                        <option class="buf dam hea res shi" value="poisoned">poisoned</option>
+                        <option class="buf dam hea res shi" value="prone">prone</option>
+                        <option class="buf dam hea res shi" value="restrained">restrained</option>
+                        <option class="buf dam hea res shi" value="stunned">stunned</option>
+                        <option class="buf dam hea res shi" value="asleep">asleep</option>
+                    </select>
+                </td>
+            </tr>
+
+            <!-- Type Dropdown -->
+            <tr class="school-active">
+                <td><label for="type">Elemental Type:</label></td>
+                <td>
+                    <select value="none" name="type" id="type">
+                        <option class="default"                     value="none">none</option>
+                        <option class="hea div enc ill tra"     value="Acid">acid</option>
+                        <option class="hea div enc evo ill nec" value="Bludgeoning">bludgeoning</option>
+                        <option class="hea div enc ill"         value="Cold">cold</option>
+                        <option class="hea div enc ill nec"     value="Fire">fire</option>
+                        <option class="hea div enc ill nec tra" value="Force">force</option>
+                        <option class="hea div enc ill nec tra" value="Lightning">lightning</option>
+                        <option class="div enc ill tra"         value="Necrotic">necrotic</option>
+                        <option class="hea div enc evo ill nec" value="Piercing">piercing</option>
+                        <option class="hea div enc ill tra"     value="Poison">poison</option>
+                        <option class="hea div evo tra"     value="Psychic">psychic</option>
+                        <option class="div enc ill nec tra"     value="Radiant">radiant</option>
+                        <option class="hea div enc evo ill nec" value="Slashing">slashing</option>
+                        <option class="hea div enc ill nec tra" value="Thunder">thunder</option>
+                    </select>
+                </td>
+            </tr>
+
+            <!-- Area Dropdown -->
+            <tr class="school-active">
+                <td><label for="area">Area Style:</label></td>
+                <td>
+                    <select value="touch" name="area" id="area">
+                        <option class="default"                             value="target">target</option>
+                        <option class="con div enc evo ill"                 value="self">self</option>
+                        <option class="buf hea res shi abj con div ill tra" value="cone">cone</option>
+                        <option class="res shi abj div tra"                 value="cube">cube</option>
+                        <option class="buf deb res shi abj div enc ill tra" value="line">line</option>
+                        <option class="enc ill tra"                         value="sphere">sphere</option>
+                    </select>
+                </td>
+            </tr>
+
+            <!-- Casting Time Dropdown -->
+            <tr class="school-active">
+                <td><label for="speed">Casting Time:</label></td>
+                <td>
+                    <select default="action"                                    value="action" name="speed" id="speed">
+                        <option class="common uncommon buf deb con div nec tra" value="reaction">reaction</option>
+                        <option class="common con div"                          value="bonus action">bonus action</option>
+                        <option class="default"                                 value="action">action</option>
+                        <option class="cone evo ill"                            value="1 round">1 round</option>
+                        <option class="cone line res evo ill"                   value="1 minute">1 minute</option>
+                        <option class="cone line res enc evo ill"               value="1 hour">1 hour</option>
+                    </select>
+                </td>
+            </tr>
+
+            <!-- Duration Time Dropdown -->
+            <tr class="school-active">
+                <td><label for="duration">Duration:</label></td>
+                <td>
+                    <select value="1 round" name="duration" id="duration">
+                        <option class="default"                                                                             value="instantaneous">instantaneous</option>
+                        <option class="cone"                                                                                value="1 round">1 round</option>
+                        <option class="cone"                                                                                value="1 minute">1 minute</option>
+                        <option class="cone evo"                                                                            value="10 minutes">10 minutes</option>
+                        <option class="cone hea evo"                                                                        value="1 hour">1 hour</option>
+                        <option class="common cone hea div enc evo ill"                                                     value="8 hours">8 hours</option>
+                        <option class="common uncommon cone cube line sphere hea res shi div evo ill"                       value="24 hours">24 hours</option>
+                        <option class="common uncommon rare cone cube line sphere buf deb hea res shi abj div enc evo ill"  value="permanent">permanent</option>
+                        <option class="common uncommon cone cube line sphere buf deb hea res shi evo ill tra"               value="from - until">from - until</option>
+                    </select>
+                </td>
+            </tr>
+
+            <!-- Range Dropdown -->
+            <tr class="school-active">
+                <td><label for="range">Casting Range:</label></td>
+                <td>
+                    <select value="5ft." name="range" id="range">
+                        <option class="default"                                                                                     value="5ft.">5ft.</option>
+                        <option class="self cone"                                                                                   value="15ft.">15ft.</option>
+                        <option class="self cone line tra"                                                                          value="30ft.">30ft.</option>
+                        <option class="self cone line tra"                                                                          value="60ft.">60ft.</option>
+                        <option class="self cone cube line sphere buf hea res shi abj evo tra"                                      value="120ft.">120ft.</option>
+                        <option class="common self cone cube line sphere buf deb hea res shi abj enc evo ill tra"                   value="1km">1km</option>
+                        <option class="common self cone cube line sphere buf deb hea res shi abj enc evo ill tra"                   value="5km">5km</option>
+                        <option class="common self cone cube line sphere buf deb hea res shi abj enc evo ill nec tra"               value="20km">20km</option>
+                        <option class="common uncommon self cone cube line sphere buf deb hea res shi abj enc evo ill nec tra"      value="100km">100km</option>
+                        <option class="common uncommon self cone cube line sphere buf deb hea res shi abj enc evo ill nec tra"      value="anywhere">anywhere</option>
+                    </select>
+                </td>
+            </tr>
+
+            <!-- Effect Radius Dropdown -->
+            <tr class="school-active">
+                <td><label for="radius">Effect Range:</label></td>
+                <td>
+                    <select value="none" name="radius" id="radius">
+                        <option class="cone cube line sphere default"               value="5ft.">5ft.</option>
+                        <option class="self cube sphere abj div enc ill tra"        value="10ft.">10ft.</option>
+                        <option class="self cone line tra"                          value="15ft.">15ft.</option>
+                        <option class="self cube sphere abj div enc ill tra"        value="20ft.">20ft.</option>
+                        <option class="self cone line tra"                          value="25ft.">25ft.</option>
+                        <option class="common self cube sphere abj div enc ill tra" value="30ft.">30ft.</option>
+                        <option class="common self cone line hea res con tra"       value="35ft.">35ft.</option>
+                    </select>
+                </td>
+            </tr>
+
+            <!-- Special Attribute Input -->
+            <tr class="school-active">
+                <td><label for="special">Special Attribute or Notes:</label></td>
+                <td><textarea id="special" name="special" rows="1" cols="50"></textarea></td>
+            </tr>
+
+            <!-- Save content Button -->
+            <tr class="school-active">
+                <td colspan="2" class="center"><button type="button" id="save-button">save</button></td>
+            </tr>
+
+            
+            <!-- Save content Button -->
+            <tr class="hide">
+                <td><label for="replace-button">Do you want to replace Ingredient in bag with same name?</label></td>
+                <td><button type="button" id="replace-button">Replace</button></td>
+            </tr>
+        </table>
+
+    </div>
+
+    <!-- BACKPACK -->
+    <div class="block">
+
+        <h2>Backpack</h2>
+
+        <div id="backpack"></div>
+
+    </div>
+
+    <!-- CAULDRON -->
+    <div class="block">
+
+        <h2>Cauldron</h2>
+
+        <!-- Brujo Info -->
+        <table>
+            <tr>
+                <th>Brujo Level</th>
+                <th>Herbalism Skill</th>
+            </tr>
+            <tr>
+                <td><input id="brujo-level" type="number" value="1"></td>
+                <td>
+                    <select id="herbalism-skill">
+                        <option value="0">None</option>
+                        <option value="1">Proficient</option>
+                        <option selected value="2">Expertise</option>
+                    </select>
+                </td>
+            </tr>
+        </table>
+
+        <!-- Display Selected Ingredients -->
+        <table class="alternating-colours small-text capitalise">
+            <tr id="display-name"></tr>
+            <tr id="display-alive"></tr>
+            <tr id="display-quantity"></tr>
+            <tr id="display-rarity"></tr>
+            <tr id="display-school"></tr>
+            <tr id="display-effect"></tr>
+            <tr id="display-condition"></tr>
+            <tr id="display-type"></tr>
+            <tr id="display-area"></tr>
+            <tr id="display-speed"></tr>
+            <tr id="display-duration"></tr>
+            <tr id="display-range"></tr>
+            <tr id="display-radius"></tr>
+            <tr id="display-special"></tr>
+            <tr id="construct-button"></tr>
+        </table>
+
+    </div>
+
+    <div class="block last hidden" id="construct-block">
+
+        <h2>Construct</h2>
+
+    </div>
+
+    <footer>
+        <div>
+            <p>footer</p>
+        </div>
+    </footer>
+
+</body>
+
+<script src="ingredients.js"></script>
+
+</html>

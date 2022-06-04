@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Cauldron</title>
+</head>
+
+<body>
+
+    <nav>
+        <a href="index.html">Ingredients</a>
+        <a id="active-page" href="cauldron.html">Cauldron</a>
+    </nav>
+
+    <div class="heading">
+        <h1>Cauldron</h1>
+        <p class="subheading">Pick Ingredients to build Construct.</p>
+    </div>
+
+    <div class="columns">
+
+        <div class="left-column">
+
+            <div class="block have">
+
+                <h2>Held Ingredients</h2>
+
+                <ul class="selectable">
+                    <li>Tobacco</li>
+                    <li>Rat</li>
+                    <li>Bear's Heart</li>
+                    <li>Huntsman Spider</li>
+                    <li>Moss</li>
+                    <li>Fish</li>
+                </ul>
+
+            </div>
+
+            <div class="block dont-have">
+
+                <h2>Known Ingredients</h2>
+
+                <ul>
+                    <li>Worm</li>
+                    <li>Wasp</li>
+                    <li>Feather</li>
+                </ul>
+
+            </div>
+
+        </div>
+
+        <div class="right-column">
+
+            <div class="block">
+
+                <h2>Construct Builder</h2>
+
+                <table>
+                    <tr>
+                        <td><label for="level">Brujo Level:</label></td>
+                        <td><input id="level" name="level" type="text"></td>
+                        <td><label for="proficiency">Herbalism Proficiency:</label></td>
+                        <td>
+                            <select id="proficiency" name="proficiency" type="text">
+                                <option value="proficient">proficient</option>
+                                <option value="expert">expert</option>
+                            </select>
+                        </td>
+                    </tr>
+                </table>
+
+                <div id="construct-data">
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</body>
+
+<script src="cauldron.js"></script>
+
+</html>
