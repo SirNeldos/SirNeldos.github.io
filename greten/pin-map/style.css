@@ -1,0 +1,29 @@
+
+body {
+    margin: 0;
+    padding: 0;
+}
+
+#map {
+    width: 100%;
+}
+
+button {
+    margin: 8px 16px;
+    padding: 8px 16px;
+}
+
+#pin {
+    position: absolute;
+    cursor: none;
+}
+
+.pin-placed {
+    position: absolute;
+    cursor: pointer;
+}
+
+.pin-placed img:hover {
+    width: 40px;
+    height: 40px;
+}

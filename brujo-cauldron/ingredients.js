@@ -463,6 +463,7 @@ function growConstruct(cauldronList) {
     names = names.sort(function (a, b) { return a.localeCompare(b) });
     text += '<span class="bold">Ingredients:</span> ';
     for (let i = 0; i < names.length; i++) text += `${names[i]}, `;
+    text = text.slice(0, -2);
     text += '<br>'
 
     // Get Casting Time info
@@ -993,7 +994,7 @@ function rarityText(list, souls) {
 
     text += `${total + mutation}d${Math.floor((herbSkill + total) / 2) * 2}<br>`;
 
-    text += `<span class="bold">Augmentation Pool:</span> ${total + mutation} points to upgrade Construct at Exponential Cost.`
+    text += `<span class="bold">Augmentation Pool:</span> Spend dice to upgrade Construct at Exponential Cost.`
 
     return text;
 }

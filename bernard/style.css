@@ -1,0 +1,157 @@
+
+:root {
+    --c-accent: #c35d5d;
+    --c-background: #fffff1;
+    --c-table: #e8e8d5;
+    --c-shadow: #5c4f41;
+    --c-font: #1e2d2f;
+
+    font-family: Georgia, serif;
+    font-weight: 400;
+}
+
+body {
+    margin: 0;
+    padding: 8px 3vw;
+    font-size: 100%;
+    background-color: var(--c-background);
+    color: var(--c-font);
+}
+
+select {
+    width: 20%;
+}
+
+
+/* ====== DARK MODE SETTING ====== */
+#dark-mode {
+    position: absolute;
+    right: 4px;
+    top: 4px;
+}
+
+
+/* ====== TAPER ====== */
+.taper svg {
+    width: 100%;
+    height: 5px;
+    fill: var(--c-accent);
+}
+
+
+/* ====== NAME & DESCRIPTION SETTINGS ====== */
+.description p {
+    color: var(--c-shadow);
+    margin: 5vw 0 0 0;
+}
+
+.title {
+    color: var(--c-font);
+    font-size: 2.5em;
+    margin-right: 0.25em;
+}
+
+input {
+    text-align: center;
+}
+
+
+
+/* ====== ATTRIBUTES ====== */
+#attributes {
+    display: flex;
+    justify-content: space-around;
+    font-size: 1.5em;
+    width: 100%;
+    margin: 10px 0px 5px 0px;
+}
+
+.attr {
+    display: inline-block;
+    text-align: center;
+}
+
+.attr-num {
+    display: inline-block;
+    font-size: 1rem;
+    margin: 0px 0px 0px -5px;
+}
+
+
+
+/* ====== TABLE SETTINGS ====== */
+table, tbody {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+#survival-table tr:nth-child(odd) {
+    background-color: var(--c-table);
+}
+
+#survival-table tr:nth-child(even) {
+    background-color: var(--c-background);
+}
+
+tr:nth-child(even) {
+    background-color: var(--c-table);
+}
+
+td {
+    padding: 4px;
+}
+
+td:first-child {
+    text-align: right;
+    width: 150px;
+    font-weight: bold;
+}
+
+td:last-child {
+    text-align: left;
+    padding-left: 12px;
+}
+
+
+
+
+
+/* ====== GENERIC FORMATTING SETTINGS ====== */
+.bold {
+    font-weight: bold;
+}
+
+.italic {
+    font-style: italic;
+}
+
+.heading {
+    font-size: 1.2em;
+    text-transform: uppercase;
+    margin: 2em 0 0 0;
+}
+
+.dmg {
+    font-size: 0.8em;
+    font-weight: bold;
+}
+
+.flex-list ul, .single-list ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.flex-list ul {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.flex-list li {
+    text-align: center;
+    width: 33.3%;
+    padding: 4px 0 0 0;
+}
+
+
+/* ====== xxx SETTINGS ====== */
