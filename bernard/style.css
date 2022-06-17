@@ -2,11 +2,11 @@
 :root {
     --c-accent: #c35d5d;
     --c-background: #fffff1;
-    --c-table: #e8e8d5;
+    --c-table: #62383841;
     --c-shadow: #5c4f41;
     --c-font: #1e2d2f;
 
-    font-family: Georgia, serif;
+    font-family: convergence,Arial,sans-serif;
     font-weight: 400;
 }
 
@@ -17,10 +17,23 @@ body {
     color: var(--c-font);
 }
 
+p {
+    margin: 1em 0 0 0;
+}
+
+ul {
+    margin: 4px 0 0 0;
+    padding: 0 0 0 16px;
+}
+
+h1, h2, h3 {
+    font-family: Georgia, serif;
+}
+
 h1 {
     color: var(--c-font);
     font-size: 2.5em;
-    margin: 2em 0 0 1em;
+    margin: 2em 0 0.5em 1em;
     font-variant: small-caps;
 }
 
@@ -29,6 +42,7 @@ h2 {
     font-size: 1.5em;
     font-variant: small-caps;
     font-weight: normal;
+    margin: 0;
 }
 
 select {
@@ -75,6 +89,10 @@ nav a:hover {
     color: var(--c-font);
 }
 
+#nav-selected a {
+    background-color: var(--c-background);
+    color: var(--c-font);
+}
 
 /* ====== DARK MODE SETTING ====== */
 #dark-mode {
@@ -137,7 +155,7 @@ input {
 
 /* ====== FEATURES SETTINGS ====== */
 .feature-block {
-    padding: 1em 2em;
+    padding: 1.5em 2em;
 }
 
 .feature-block:nth-child(odd) {
@@ -181,6 +199,27 @@ td:last-child {
 
 
 
+/* ====== DROPDOWN SETTINGS ====== */
+.dropdown {
+    cursor: pointer;
+}
+
+.dropdown::after {
+    content: "\002B";
+    font-weight: bold;
+    float: right;
+    margin-left: 5px;
+}
+
+.minus::after {
+    content: "\2212" !important;
+}
+
+.hide {
+    display: none;
+}
+
+
 
 
 /* ====== GENERIC FORMATTING SETTINGS ====== */
@@ -203,13 +242,13 @@ td:last-child {
 
 .flex-list ul, .single-list ul {
     list-style-type: none;
-    padding: 0;
 }
 
 .flex-list ul {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
+    padding: 0;
 }
 
 .flex-list li {
