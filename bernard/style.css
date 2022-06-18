@@ -1,268 +1,89 @@
-
 :root {
     --c-accent: #c35d5d;
-    --c-background: #fffff1;
-    --c-table: #62383841;
-    --c-shadow: #5c4f41;
+    --c-background: #ececd8;
     --c-font: #1e2d2f;
+    --c-shadow: #1e2d2fe0;
+    --c-table: #62383841;
 
     font-family: convergence,Arial,sans-serif;
-    font-size: 120%;
+    font-size: 100%;
     font-weight: 400;
 }
 
 body {
-    margin: 0;
     background-color: var(--c-background);
     color: var(--c-font);
+    margin: 0;
 }
 
 p {
-    margin: 1em 0 0 0;
-}
-
-ul {
-    margin: 4px 0 0 0;
-    padding: 0 0 0 16px;
-}
-
-h1, h2, h3 {
-    font-family: Georgia, serif;
-}
-
-h1 {
-    color: var(--c-font);
-    font-size: 2em;
-    margin: 2em 0 0.5em 1em;
-    font-variant: small-caps;
-}
-
-h2 {
-    color: var(--c-font);
-    font-size: 1.3em;
-    font-variant: small-caps;
-    font-weight: normal;
     margin: 0;
 }
 
-h3 {
-    color: var(--c-font);
-    font-size: 1.1em;
-    font-weight: normal;
-    margin: 0.5em 0 0 0;
-}
 
-select {
-    width: 20%;
-}
-
-
-/* ====== NAVIGATION SETTING ====== */
-nav {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    background-color: var(--c-font);
-    color: var(--c-background);
-    background-color: var(font);
-}
-
-nav ul {
-    align-items: center;
-    list-style-type: none;
-    padding: 0;
-    margin: 0;
-    overflow: hidden;
+/* FORM NAVIGATION BAR */
+#form-select {
     display: flex;
+    justify-content: center;
 }
 
-nav li {
-    text-align: center;
-    padding: 0;
-    float: left;
+#form-select svg {
+    cursor: pointer;
+    width: 30px;
+    padding: 12px;
+    margin: 0 2vw;
 }
 
-nav a {
-    display: block;
-    color: var(--c-background);
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
-}
-
-nav a:hover {
-    background-color: var(--c-background);
-    color: var(--c-font);
-}
-
-#nav-selected a {
-    background-color: var(--c-background);
-    color: var(--c-font);
-}
-
-/* ====== DARK MODE SETTING ====== */
-#dark-mode {
-    width: 1.5em;
-    position: absolute;
-    right: 5%;
-}
-
-#dark-mode:hover {
+.current-form {
     color: var(--c-accent);
-    cursor: pointer;
-}
-
-
-/* ====== TAPER ====== */
-.taper svg {
-    width: 100%;
-    height: 5px;
-    fill: var(--c-accent);
-}
-
-
-/* ====== NAME & DESCRIPTION SETTINGS ====== */
-.description {
-    margin-top: 4em;
-}
-
-.description p {
-    color: var(--c-shadow);
-    margin: 5vw 0 0 0;
-}
-
-input {
-    text-align: center;
 }
 
 
 
-/* ====== ATTRIBUTES ====== */
-#attributes {
-    display: flex;
-    justify-content: space-around;
-    font-size: 1.5em;
-    width: 100%;
-    margin: 10px 0px 5px 0px;
+/* MENU SETTINGS */
+#menu-button {
+    position: absolute;
+    right: 0px;
+    margin: 0 !important;
 }
 
-.attr {
-    display: inline-block;
-    text-align: center;
-}
-
-.attr-num {
-    display: inline-block;
-    font-size: 1rem;
-    margin: 0px 0px 0px -5px;
-}
-
-
-
-/* ====== FEATURES SETTINGS ====== */
-.feature-block {
-    padding: 1.5em 2em;
-}
-
-.feature-block:nth-child(odd) {
-    background-color: var(--c-table);
-}
-
-
-
-/* ====== TABLE SETTINGS ====== */
-table, tbody {
-    width: 100%;
+#menu {
+    background-color: var(--c-shadow);
     border-collapse: collapse;
+    color: var(--c-background);
+    position: absolute;
+    right: 0px;
+    text-align: center;
+    top: 50px;
 }
 
-#survival-table tr:nth-child(odd) {
-    background-color: var(--c-table);
+#menu tr:first-child td {
+    line-height: 36px;
+    text-align: center;
 }
 
-#survival-table tr:nth-child(even) {
-    background-color: var(--c-background);
+#menu input {
+    text-align: center;
+    width: 30px;
 }
 
-tr:nth-child(even) {
-    background-color: var(--c-table);
-}
-
-td {
-    padding: 4px;
-}
-
-td:first-child {
-    text-align: right;
-    width: 150px;
-    font-weight: bold;
-}
-
-td:last-child {
-    text-align: left;
-    padding-left: 12px;
-}
-
-
-
-/* ====== DROPDOWN SETTINGS ====== */
-.dropdown {
+#dark-mode {
+    background-color: var(--c-accent);
+    border: none;
+    color: var(--c-background);
     cursor: pointer;
+    font-size: 1em;
+    padding: 10px 16px;
 }
 
-.dropdown::after {
-    content: "\002B";
-    font-weight: bold;
-    float: right;
-    margin-left: 5px;
+
+/* STAT BLOCK */
+#stat-block-body {
+    margin: 0 16px;
 }
 
-.minus::after {
-    content: "\2212" !important;
-}
 
+/* MISC. SETTINGS */
 .hide {
     display: none;
 }
-
-
-
-
-/* ====== GENERIC FORMATTING SETTINGS ====== */
-.bold {
-    font-weight: bold;
-}
-
-.italic {
-    font-style: italic;
-}
-
-.dmg {
-    font-size: 0.8em;
-    font-weight: bold;
-}
-
-.single-list {
-    margin: 0;
-}
-
-.flex-list ul, .single-list ul {
-    list-style-type: none;
-}
-
-.flex-list ul {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    padding: 0;
-}
-
-.flex-list li {
-    text-align: center;
-    width: 33.3%;
-    padding: 4px 0 0 0;
-}
-
-
-/* ====== xxx SETTINGS ====== */

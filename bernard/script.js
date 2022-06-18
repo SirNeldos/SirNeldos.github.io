@@ -1,24 +1,21 @@
 
-
-
 // ====== DARK MODE ====== //
-const theme = {
-    'light': {
-        'bg': '#fffff1',
-        'shadow': '#5c4f41',
-        'accent': '#e06c75',
-        'font': '#282c34'
-    }, 'dark': {
-        'bg': '#282c34',
-        'shadow': '#c1b1a0',
-        'accent': '#e06c75',
-        'font': '#e1d4c6'
-    }
-};
-
 let dark = false;
 document.querySelector('#dark-mode').addEventListener('click', () => {
-    var r = document.querySelector(':root');
+    let theme = {
+        'light': {
+            'bg': '#ececd8',
+            'shadow': '#1e2d2fe0',
+            'accent': '#e06c75',
+            'font': '#1e2d2f'
+        }, 'dark': {
+            'bg': '#1e2d2f',
+            'shadow': '#ececd8e0',
+            'accent': '#e06c75',
+            'font': '#ececd8'
+        }
+    };
+    let r = document.querySelector(':root');
 
     switch (dark) {
         case false:
@@ -40,16 +37,21 @@ document.querySelector('#dark-mode').addEventListener('click', () => {
 });
 
 
-// ====== IMPLEMENT TAPERS ====== //
-document.querySelectorAll('.taper').forEach(e => {
-    e.innerHTML = '<svg preserveAspectRatio="none" viewBox="0 0 100 5"><polygon points="0,5 100,5 0,0" /></svg>'
+// ====== SETTINGS MENU ======= //
+document.getElementById('menu-button').addEventListener('click', () => {
+    document.getElementById('menu').classList.toggle('hide');
 });
 
 
-// ====== DROPDOWNS ====== //
-document.querySelectorAll('.dropdown').forEach(e=>{
-    e.addEventListener('click', () => {
-        e.classList.toggle('minus');
-        e.nextElementSibling.classList.toggle('hide');
+// ====== FORM NAV-BAR SETTINGS ====== //
+const formList = [document.getElementById('humanoidB'), document.getElementById('bearB'), document.getElementById('hybridB')]
+formList.forEach(i => {
+    i.addEventListener('click', () => {
+        formList.forEach(j => {
+            j.classList.remove('current-form');
+            document.getElementById(j.id.slice(0,-1)+'-form').classList.add('hide');
+        });
+        i.classList.add('current-form');
+        document.getElementById(i.id.slice(0,-1)+'-form').classList.remove('hide');
     });
 });

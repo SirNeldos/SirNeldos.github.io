@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Bernard</title>
+</head>
+
+<body>
+
+    <!-- NAVIGATION BAR -->
+    <nav>
+        <ul>
+            <li id="nav-selected"><a href="index.html">Stat Blocks</a></li>
+            <li><a href="features.html">Features & Traits</a></li>
+            <!-- DARK / LIGHT THEME -->
+            <svg id="dark-mode" viewBox="0 0 455 455" fill="currentColor">
+                <polygon points="320.18,162.705 280.63,171.052 307.72,201.052 303.437,241.245 340.34,224.751 377.243,241.245 372.96,201.052 400.05,171.052 360.5,162.705 340.34,127.67 	" />
+                <polygon points="440,325.677 414.091,320.208 400.883,297.253 387.675,320.208 361.766,325.677 379.513,345.33 376.708,371.661 400.884,360.855 425.063,371.661 422.254,345.329 	" />
+                <path d="M218,227.5c0-89.167,51.306-166.338,126-203.64C313.443,8.6,278.978,0,242.5,0C116.855,0,15,101.855,15,227.5 S116.855,455,242.5,455c36.478,0,70.943-8.6,101.5-23.86C269.306,393.838,218,316.667,218,227.5z" />
+            </svg>
+        </ul>
+    </nav>
+
+
+
+    <!-- NAME & DESCRIPTION SECTION -->
+    <div class="description">
+        <h1>Bernard</h1><p>Medium humanoid (ursilborn) chaotic neutral.</p>
+    </div>
+
+
+    <!-- CHARACTER STATS -->
+    <div id="character-stats">
+
+        <!-- INPUTS TO DETERMINE STATS -->
+        <div id="input-stats">
+
+
+        </div>
+
+        <!-- TAPERED DIVIDER -->
+        <div class="taper"></div>
+
+        <!-- BASE INFO -->
+        <div id="base-info" class="single-list">
+            <ul>
+                <li><span class="bold">Level</span> <input type="number" name="level" id="level"></li>
+                <li><span class="bold">Proficiency Bonus</span> <input type="number" name="proficiency"
+                        id="proficiency"></li>
+                <li><span class="bold">Armour Class</span> 12 In Humanoid Form | 14 In Bear And Hybrid Forms</li>
+                <li><span class="bold">Hit Points</span> 22 (4 + (level * 9))</li>
+                <li><span class="bold">Speed</span> 30ft. in Humanoid Form | 40ft. in Hybrid Form | 40ft. and climb
+                    30ft. in Bear Form)</li>
+            </ul>
+        </div>
+
+        <!-- TAPERED DIVIDER -->
+        <div class="taper"></div>
+
+        <!-- ATTRIBUTES -->
+        <div id="attributes">
+            <div class="attr">
+                <span>STR</span><br>
+                <div class="attr-num">18 (+4)</div>
+            </div>
+            <div class="attr">
+                <span>DEX</span><br>
+                <div class="attr-num">9 (-1)</div>
+            </div>
+            <div class="attr">
+                <span>CON</span><br>
+                <div class="attr-num">16 (+3)</div>
+            </div>
+            <div class="attr">
+                <span>INT</span><br>
+                <div class="attr-num">18 (+4)</div>
+            </div>
+            <div class="attr">
+                <span>WIS</span><br>
+                <div class="attr-num">14 (+2)</div>
+            </div>
+            <div class="attr">
+                <span>CHA</span><br>
+                <div class="attr-num">10 (+0)</div>
+            </div>
+        </div>
+
+        <!-- SAVING THROWS -->
+        <div id="saving-throws" class="single-list flex-list">
+            <ul>
+                <li> +6 Strength</li>
+                <li> -1 Dexterity</li>
+                <li> +5 Constitution</li>
+                <li> +4 Intelligence</li>
+                <li> +2 Wisdom</li>
+                <li> +0 Charisma</li>
+            </ul>
+        </div>
+
+        <!-- TAPERED DIVIDER -->
+        <div class="taper"></div>
+
+        <!-- SKILLS -->
+        <div id="skills" class="single-list flex-list">
+            <ul>
+                <li> -1 Acrobatics (Dex)</li>
+                <li> +2 Animal Handling (Wis)</li>
+                <li> +4 Arcana (Int)</li>
+                <li> +6 Athletics (Str)</li>
+                <li> +0 Deception (Cha)</li>
+                <li> +4 History (Int)</li>
+                <li> +6 Insight (Wis)</li>
+                <li> +2 Intimidation (Cha)</li>
+                <li> +6 Investigation (Int)</li>
+                <li> +2 Medicine (Wis)</li>
+                <li> +4 Nature (Int)</li>
+                <li> +2 Perception (Wis)</li>
+                <li> +0 Performance (Cha)</li>
+                <li> +0 Persuasion (Cha)</li>
+                <li> +4 Religion (Int)</li>
+                <li> -1 Sleight of Hand (Dex)</li>
+                <li> +1 Stealth (Dex)</li>
+                <li> +2 Survival (Wis)</li>
+            </ul>
+        </div>
+
+        <!-- TAPERED DIVIDER -->
+        <div class="taper"></div>
+
+    </div>
+
+
+</body>
+
+<script src="script.js"></script>
+
+</html>
