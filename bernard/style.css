@@ -16,10 +16,18 @@ body {
     background-blend-mode: exclusion; */
     color: var(--c-font);
     margin: 0;
+    line-height: 1.3em;
 }
 
 p {
     margin: 0;
+}
+
+h1, h2 {
+    font-family: times new roman,serif;
+    font-variant: small-caps;
+    font-weight: normal;
+    margin: 0 0 4px 0;
 }
 
 ul {

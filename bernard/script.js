@@ -85,6 +85,24 @@ levelInput.addEventListener('change', () => {
 });
 
 function updateStatBlocks(currentForm) {
+    // Make Abilities Object to modify for each form and trickle-down information
+    let TempA = JSON.parse(JSON.stringify(Abilities));
+    switch (currentForm.id) {
+        case 'bearB':
+            TempA.str.score = Abilities.str.score + 6;
+            TempA.str.mod = Math.floor(TempA.str.score / 2) - 5;
+            TempA.con.score = Abilities.con.score + 6;
+            TempA.con.mod = Math.floor(TempA.con.score / 2) - 5;
+            break;
+        case 'hybridB':
+            TempA.str.score = Abilities.str.score + 3;
+            TempA.str.mod = Math.floor(TempA.str.score / 2) - 5;
+            TempA.con.score = Abilities.con.score + 3;
+            TempA.con.mod = Math.floor(TempA.con.score / 2) - 5;
+            break;
+        default:
+            break
+    }
 
     // Display Available Forms
     if (levelInput.value >= 4) document.getElementById('hybridB').parentElement.classList.remove('hide');
@@ -92,6 +110,20 @@ function updateStatBlocks(currentForm) {
 
     // Update Proficiency Bonus variable
     PB = Math.ceil(levelInput.value / 4) + 1;
+
+    // Update Form Description
+    let fd = document.getElementById('form-description');
+    switch (currentForm.id) {
+        case 'humanoidB':
+            fd.innerHTML = '<h1>Bernard: Humanoid</h1><p>As a humanoid, Bernard is indistinguishable from any other human.</p>';
+            break;
+        case 'bearB':
+            fd.innerHTML = '<span class="title">Bernard: Bear</span>As a bear, Bernard is indistinguishable from any other bear.';
+            break;
+        case 'hybridB':
+            fd.innerHTML = '<span class="title">Bernard: Hybrid</span>In hybrid form, Bernard is obviously a Shapechanger, or Ursilborn for those with such knowledge.';
+            break;
+    }
 
     // Update Level
     document.getElementById('stat-level').innerHTML = '<span class="bold">Level</span>' + levelInput.value;
@@ -101,25 +133,11 @@ function updateStatBlocks(currentForm) {
 
     // Update Armour Class
     let AC = document.getElementById('stat-ac')
-    if (currentForm.id == 'humanoidB') AC.innerHTML = '<span class="bold">Armour Class</span>' + (10 + Abilities.dex.mod + Abilities.wis.mod);
-    else AC.innerHTML = '<span class="bold">Armour Class</span>' + (10 + Abilities.str.mod);
+    if (currentForm.id == 'humanoidB') AC.innerHTML = '<span class="bold">Armour Class</span>' + (10 + TempA.dex.mod + TempA.wis.mod);
+    else AC.innerHTML = '<span class="bold">Armour Class</span>' + (11 + TempA.dex.mod + TempA.wis.mod);
 
     // Update HP
-    let tempText = '<span class="bold">Hit Points</span>';
-    switch (currentForm.id) {
-        case 'humanoidB':
-            tempText += 4 + (levelInput.value * (5 + Abilities.con.mod));
-            tempText += ` (${levelInput.value}d8 + ${levelInput.value * Abilities.con.mod})`;
-            break;
-        case 'bearB':
-            tempText += 4 + (levelInput.value * (6 + Abilities.con.mod + 3));
-            tempText += ` (${levelInput.value}d10 + ${levelInput.value * (Abilities.con.mod + 3)})`;
-            break;
-        case 'hybridB':
-            tempText += 4 + (levelInput.value * (6 + Abilities.con.mod + 1));
-            tempText += ` (${levelInput.value}d10 + ${levelInput.value * (Abilities.con.mod + 1)})`;
-            break;
-    }
+    let tempText = `<span class="bold">Hit Points</span>${4 + (levelInput.value * (5 + TempA.con.mod))} (${levelInput.value}d8 + ${levelInput.value * TempA.con.mod})`;
     document.getElementById('stat-hp').innerHTML = tempText;
 
     // Update Speed
@@ -139,41 +157,17 @@ function updateStatBlocks(currentForm) {
 
 
     // Update Abilities
-    let ablStr = document.querySelector('.str');
-    document.querySelector('.dex').innerHTML = `<span>DEX</span><br><div class="attr-num">${Abilities.dex.score} (${mySign(Abilities.dex.mod)})</div>`;
-    let ablCon = document.querySelector('.con');
-    document.querySelector('.int').innerHTML = `<span>INT</span><br><div class="attr-num">${Abilities.int.score} (${mySign(Abilities.int.mod)})</div>`;
-    document.querySelector('.wis').innerHTML = `<span>WIS</span><br><div class="attr-num">${Abilities.wis.score} (${mySign(Abilities.wis.mod)})</div>`;
-    document.querySelector('.cha').innerHTML = `<span>CHA</span><br><div class="attr-num">${Abilities.cha.score} (${mySign(Abilities.cha.mod)})</div>`;
-    switch (currentForm.id) {
-        case 'humanoidB':
-            ablStr.innerHTML = `<span>STR</span><br><div class="attr-num">${Abilities.str.score} (${mySign(Abilities.str.mod)})</div>`;
-            ablCon.innerHTML = `<span>CON</span><br><div class="attr-num">${Abilities.con.score} (${mySign(Abilities.con.mod)})</div>`;
-            break;
-        case 'bearB':
-            ablStr.innerHTML = `<span>STR</span><br><div class="attr-num">${Abilities.str.score + 6} (${mySign(Math.floor((Abilities.str.score + 6) / 2) - 5)})</div>`;
-            ablCon.innerHTML = `<span>CON</span><br><div class="attr-num">${Abilities.con.score + 6} (${mySign(Math.floor((Abilities.con.score + 6) / 2) - 5)})</div>`;
-            break;
-        case 'hybridB':
-            ablStr.innerHTML = `<span>STR</span><br><div class="attr-num">${Abilities.str.score + 3} (${mySign(Math.floor((Abilities.str.score + 3) / 2) - 5)})</div>`;
-            ablCon.innerHTML = `<span>CON</span><br><div class="attr-num">${Abilities.con.score + 3} (${mySign(Math.floor((Abilities.con.score + 3) / 2) - 5)})</div>`;
-            break;
-    }
+    document.querySelector('.str').innerHTML = `<span>STR</span><br><div class="attr-num">${TempA.str.score} (${mySign(TempA.str.mod)})</div>`;
+    document.querySelector('.dex').innerHTML = `<span>DEX</span><br><div class="attr-num">${TempA.dex.score} (${mySign(TempA.dex.mod)})</div>`;
+    document.querySelector('.con').innerHTML = `<span>CON</span><br><div class="attr-num">${TempA.con.score} (${mySign(TempA.con.mod)})</div>`;
+    document.querySelector('.int').innerHTML = `<span>INT</span><br><div class="attr-num">${TempA.int.score} (${mySign(TempA.int.mod)})</div>`;
+    document.querySelector('.wis').innerHTML = `<span>WIS</span><br><div class="attr-num">${TempA.wis.score} (${mySign(TempA.wis.mod)})</div>`;
+    document.querySelector('.cha').innerHTML = `<span>CHA</span><br><div class="attr-num">${TempA.cha.score} (${mySign(TempA.cha.mod)})</div>`;
 
 
     // Update Saves
-    let statSaves = document.getElementById('stat-saves');
-    switch (currentForm.id) {
-        case 'humanoidB':
-            statSaves.innerHTML = `<span class="bold">Saves</span>Strength +${Abilities.str.mod + PB}, Constitution +${Abilities.con.mod + PB}`;
-            break;
-        case 'bearB':
-            statSaves.innerHTML = `<span class="bold">Saves</span>Strength +${Math.floor((Abilities.str.score + 6) / 2) - 5 + PB}, Constitution +${Math.floor((Abilities.con.score + 6) / 2) - 5 + PB}`;
-            break;
-        case 'hybridB':
-            statSaves.innerHTML = `<span class="bold">Saves</span>Strength +${Math.floor((Abilities.str.score + 3) / 2) - 5 + PB}, Constitution +${Math.floor((Abilities.con.score + 3) / 2) - 5 + PB}`;
-            break;
-    }
+    document.getElementById('stat-saves').innerHTML = `<span class="bold">Saves</span>Strength +${TempA.str.mod + PB}, Constitution +${TempA.con.mod + PB}`;
+
 
     // Update Skills
     tempText = '<span class="bold">Skills</span>(click to show)<table id="skills-table" class="hide">';
@@ -181,25 +175,24 @@ function updateStatBlocks(currentForm) {
         let spl = i.slice(0, -1);
         spl = spl.slice(spl.indexOf('(') + 1);
         spl = spl.toLocaleLowerCase();
-        console.log(spl);
 
         let pass = false;
 
         // Am I proficient?
         proficientList.forEach(j => {
             if (i == j) {
-                tempText += `<tr><td>${i}</td><td class="bold">${mySign(Abilities[spl].mod + PB)}</td><tr>`;
+                tempText += `<tr><td>${i}</td><td class="bold">${mySign(TempA[spl].mod + PB)}</td><tr>`;
                 pass = true;
             }
         });
         // Do I have expertise?
         expertiseList.forEach(j => {
             if (i == j) {
-                tempText += `<tr><td>${i}</td><td class="bold">${mySign(Abilities[spl].mod + (2 * PB))}</td><tr>`;
+                tempText += `<tr><td>${i}</td><td class="bold">${mySign(TempA[spl].mod + (2 * PB))}</td><tr>`;
                 pass = true;
             }
         })
-        if (!pass) tempText += `<tr><td>${i}</td><td>${mySign(Abilities[spl].mod)}</td><tr>`;
+        if (!pass) tempText += `<tr><td>${i}</td><td>${mySign(TempA[spl].mod)}</td><tr>`;
     });
     document.getElementById('stat-skills').innerHTML = tempText + '</table>';
 
@@ -207,13 +200,10 @@ function updateStatBlocks(currentForm) {
     let statSenses = document.getElementById('stat-senses');
     switch (currentForm.id) {
         case 'humanoidB':
-            statSenses.innerHTML = `<span class="bold">Senses</span>Passive Perception ${Abilities.wis.mod +10}`;;
+            statSenses.innerHTML = `<span class="bold">Senses</span>Passive Perception ${TempA.wis.mod + 10}`;;
             break;
-        case 'bearB':
-            statSenses.innerHTML = `<span class="bold">Senses</span>Passive Perception ${Abilities.wis.mod + PB +10}`;
-            break;
-        case 'hybridB':
-            statSenses.innerHTML = `<span class="bold">Senses</span>Passive Perception ${Abilities.wis.mod + PB +10}`;
+        default:
+            statSenses.innerHTML = `<span class="bold">Senses</span>Passive Perception ${TempA.wis.mod + PB + 10}`;
             break;
     }
 
@@ -231,14 +221,54 @@ function updateStatBlocks(currentForm) {
             break;
     }
 
+    // Update Stress Point Count
+    document.getElementById('stress-points').innerHTML = TempA.wis.mod + PB;
+
+
+
+    // Update Calc Spans
+    calcSpans(TempA, PB);
 }
 
-console.log(Abilities);
 
 
+// ====== CALCULATE CALC_SPANS ====== //
+function calcSpans(TempA, PB) {
+    let calcList = document.querySelectorAll('.calculate');
+    calcList.forEach(i => {
+        let text = '';
+        switch (i.innerHTML) {
+            case 'STRESS':
+                text = TempA.wis.mod + PB;
+                break;
+            case 'STR_ATK':
+                text = '+' + (TempA.str.mod + PB);
+                break;
+            case 'DEX_ATK':
+                text = '+' + (TempA.dex.mod + PB);
+                break;
+            case 'CON_ATK':
+                text = '+' + (TempA.con.mod + PB);
+                break;
+            case 'INT_ATK':
+                text = '+' + (TempA.int.mod + PB);
+                break;
+            case 'WIS_ATK':
+                text = '+' + (TempA.wis.mod + PB);
+                break;
+            case 'CHA_ATK':
+                text = '+' + (TempA.cha.mod + PB);
+                break;
 
+            default:
+                text = 'Invalid Function: "' + i.innerHTML + '"';
+                console.log(text);
+                break;
+        }
 
-
+        i.innerHTML = text;
+    });
+}
 
 // ====== DISPLAY SKILLS ====== //
 document.getElementById('stat-skills').addEventListener('click', () => {
