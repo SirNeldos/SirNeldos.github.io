@@ -5,7 +5,7 @@
     --c-shadow: #1e2d2fe0;
     --c-table: #62383841;
 
-    font-family: convergence,Arial,sans-serif;
+    font-family: convergence, Arial, sans-serif;
     font-size: 100%;
     font-weight: 400;
 }
@@ -18,6 +18,12 @@ body {
 
 p {
     margin: 0;
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
 }
 
 
@@ -83,7 +89,70 @@ p {
 }
 
 
+/* ====== ATTRIBUTES ====== */
+#attributes,
+.attr-segment {
+    display: flex;
+    justify-content: space-around;
+    font-size: 1.25em;
+    width: 100%;
+    margin: 10px 0px 5px 0px;
+}
+
+@media (max-width:520px) {
+    #attributes {
+        flex-wrap: wrap;
+
+    }
+}
+
+.attr {
+    display: inline-block;
+    text-align: center;
+}
+
+.attr-num {
+    display: inline-block;
+    font-size: 1rem;
+    margin: 0px 0px 0px -5px;
+}
+
+
+
+/* TAPERS */
+.taper svg {
+    width: 100%;
+    height: 5px;
+    fill: var(--c-accent);
+}
+
+
 /* MISC. SETTINGS */
 .hide {
     display: none;
+}
+
+.title {
+    font-size: 1.5em;
+}
+
+.title::after {
+    content: ' ';
+}
+
+.bold {
+    font-weight: bold;
+}
+
+.bold::after {
+    content: ' ';
+}
+
+.italic {
+    font-style: italic;
+}
+
+.dmg {
+    font-size: 0.8em;
+    font-weight: bold;
 }

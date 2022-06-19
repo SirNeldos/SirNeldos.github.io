@@ -55,7 +55,7 @@
                 <tbody>
                     <tr>
                         <td>Level</td>
-                        <td><input type="number" name="level" id="level" value="1"></td>
+                        <td><input type="number" name="level" id="level-input" value="1"></td>
                     </tr>
                     <tr>
                         <td colspan="2"><button id="dark-mode">Dark Mode</button></td>
@@ -68,54 +68,141 @@
     <!-- STAT BLOCKS -->
     <div id="stat-block-body">
 
+        <!-- TITLE OF FORM -->
+        <p>
+            <span class="title">Bernard: Humanoid</span>As a humanoid, Bernard is indistinguishable from any other
+            human.
+        </p>
+
+        <!-- TAPERED DIVIDER -->
+        <div class="taper"></div>
+
+        <!-- BASE INFO -->
+        <div id="base-info">
+            <ul>
+                <li id="stat-level"></li>
+                <li id="stat-prof"></li>
+                <li id="stat-ac"></li>
+                <li id="stat-hp"></li>
+                <li id="stat-speed"></li>
+            </ul>
+        </div>
+
+        <!-- TAPERED DIVIDER -->
+        <div class="taper"></div>
+
+        <!-- ATTRIBUTES -->
+        <div id="attributes">
+            <div class="attr-segment">
+                <div class="attr str">
+                    <span>STR</span><br>
+                    <div class="attr-num">18 (+4)</div>
+                </div>
+                <div class="attr dex">
+                    <span>DEX</span><br>
+                    <div class="attr-num">9 (-1)</div>
+                </div>
+            </div>
+            <div class="attr-segment">
+                <div class="attr con">
+                    <span>CON</span><br>
+                    <div class="attr-num">16 (+3)</div>
+                </div>
+                <div class="attr int">
+                    <span>INT</span><br>
+                    <div class="attr-num">18 (+4)</div>
+                </div>
+            </div>
+            <div class="attr-segment">
+                <div class="attr wis">
+                    <span>WIS</span><br>
+                    <div class="attr-num">14 (+2)</div>
+                </div>
+                <div class="attr cha">
+                    <span>CHA</span><br>
+                    <div class="attr-num">10 (+0)</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- TAPERED DIVIDER -->
+        <div class="taper"></div>
+
+        <!-- MORE INFO -->
+        <div id="more-info">
+            <ul>
+                <li id="stat-saves"></li>
+            </ul>
+        </div>
+
+        <!-- TAPERED DIVIDER -->
+        <div class="taper"></div>
+
+        <!-- SKILLS -->
+        <div class="skills">
+            <ul>
+                <li> -1 Acrobatics (Dex)</li>
+                <li> +2 Animal Handling (Wis)</li>
+                <li> +4 Arcana (Int)</li>
+                <li> +6 Athletics (Str)</li>
+                <li> +0 Deception (Cha)</li>
+                <li> +4 History (Int)</li>
+                <li> +6 Insight (Wis)</li>
+                <li> +2 Intimidation (Cha)</li>
+                <li> +6 Investigation (Int)</li>
+                <li> +2 Medicine (Wis)</li>
+                <li> +4 Nature (Int)</li>
+                <li> +2 Perception (Wis)</li>
+                <li> +0 Performance (Cha)</li>
+                <li> +0 Persuasion (Cha)</li>
+                <li> +4 Religion (Int)</li>
+                <li> -1 Sleight of Hand (Dex)</li>
+                <li> +1 Stealth (Dex)</li>
+                <li> +2 Survival (Wis)</li>
+            </ul>
+        </div>
+
+        <!-- TAPERED DIVIDER -->
+        <div class="taper"></div>
+
         <!-- HUMANOID FORM -->
         <div id="humanoid-form">
-            <p>
-                human human human human human human human human human human human human 
-                human human human human human human human human human human human human 
-                human human human human human human human human human human human human 
-                human human human human human human human human human human human human 
-                human human human human human human human human human human human human 
-                human human human human human human human human human human human human 
-                human human human human human human human human human human human human 
-                human human human human human human human human human human human human 
-                human human human human human human human human human human human human 
-                human human human human human human human human human human human human 
-            </p>
+
+            <p>human human</p>
         </div>
 
         <!-- BEAR FORM -->
         <div id="bear-form" class="hide">
             <p>
-                bear bear bear bear bear bear bear bear bear bear bear bear bear bear 
-                bear bear bear bear bear bear bear bear bear bear bear bear bear bear 
-                bear bear bear bear bear bear bear bear bear bear bear bear bear bear 
-                bear bear bear bear bear bear bear bear bear bear bear bear bear bear 
-                bear bear bear bear bear bear bear bear bear bear bear bear bear bear 
-                bear bear bear bear bear bear bear bear bear bear bear bear bear bear 
-                bear bear bear bear bear bear bear bear bear bear bear bear bear bear 
-                bear bear bear bear bear bear bear bear bear bear bear bear bear bear 
-                bear bear bear bear bear bear bear bear bear bear bear bear bear bear 
-                bear bear bear bear bear bear bear bear bear bear bear bear bear bear 
-                bear bear bear bear bear bear bear bear bear bear bear bear bear bear 
+                bear bear bear bear bear bear bear bear bear bear bear bear bear bear
+                bear bear bear bear bear bear bear bear bear bear bear bear bear bear
+                bear bear bear bear bear bear bear bear bear bear bear bear bear bear
+                bear bear bear bear bear bear bear bear bear bear bear bear bear bear
+                bear bear bear bear bear bear bear bear bear bear bear bear bear bear
+                bear bear bear bear bear bear bear bear bear bear bear bear bear bear
+                bear bear bear bear bear bear bear bear bear bear bear bear bear bear
+                bear bear bear bear bear bear bear bear bear bear bear bear bear bear
+                bear bear bear bear bear bear bear bear bear bear bear bear bear bear
+                bear bear bear bear bear bear bear bear bear bear bear bear bear bear
+                bear bear bear bear bear bear bear bear bear bear bear bear bear bear
             </p>
         </div>
 
         <!-- HYBRID FORM -->
         <div id="hybrid-form" class="hide">
             <p>
-                hybrid hybrid hybrid hybrid hybrid hybrid hybrid hybrid hybrid hybrid 
-                hybrid hybrid hybrid hybrid hybrid hybrid hybrid hybrid hybrid hybrid 
-                hybrid hybrid hybrid hybrid hybrid hybrid hybrid hybrid hybrid hybrid 
-                hybrid hybrid hybrid hybrid hybrid hybrid hybrid hybrid hybrid hybrid 
-                hybrid hybrid hybrid hybrid hybrid hybrid hybrid hybrid hybrid hybrid 
-                hybrid hybrid hybrid hybrid hybrid hybrid hybrid hybrid hybrid hybrid 
-                hybrid hybrid hybrid hybrid hybrid hybrid hybrid hybrid hybrid hybrid 
-                hybrid hybrid hybrid hybrid hybrid hybrid hybrid hybrid hybrid hybrid 
-                hybrid hybrid hybrid hybrid hybrid hybrid hybrid hybrid hybrid hybrid 
-                hybrid hybrid hybrid hybrid hybrid hybrid hybrid hybrid hybrid hybrid 
-                hybrid hybrid hybrid hybrid hybrid hybrid hybrid hybrid hybrid hybrid 
-                hybrid hybrid hybrid hybrid hybrid hybrid hybrid hybrid hybrid hybrid 
+                hybrid hybrid hybrid hybrid hybrid hybrid hybrid hybrid hybrid hybrid
+                hybrid hybrid hybrid hybrid hybrid hybrid hybrid hybrid hybrid hybrid
+                hybrid hybrid hybrid hybrid hybrid hybrid hybrid hybrid hybrid hybrid
+                hybrid hybrid hybrid hybrid hybrid hybrid hybrid hybrid hybrid hybrid
+                hybrid hybrid hybrid hybrid hybrid hybrid hybrid hybrid hybrid hybrid
+                hybrid hybrid hybrid hybrid hybrid hybrid hybrid hybrid hybrid hybrid
+                hybrid hybrid hybrid hybrid hybrid hybrid hybrid hybrid hybrid hybrid
+                hybrid hybrid hybrid hybrid hybrid hybrid hybrid hybrid hybrid hybrid
+                hybrid hybrid hybrid hybrid hybrid hybrid hybrid hybrid hybrid hybrid
+                hybrid hybrid hybrid hybrid hybrid hybrid hybrid hybrid hybrid hybrid
+                hybrid hybrid hybrid hybrid hybrid hybrid hybrid hybrid hybrid hybrid
+                hybrid hybrid hybrid hybrid hybrid hybrid hybrid hybrid hybrid hybrid
             </p>
         </div>
 
