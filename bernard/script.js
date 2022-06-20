@@ -43,6 +43,8 @@ document.querySelector('#dark-mode').addEventListener('click', () => {
             dark = false;
             break;
     }
+
+    document.getElementById('bg-img').classList.toggle('invert-color');
 });
 
 
@@ -118,10 +120,10 @@ function updateStatBlocks(currentForm) {
             fd.innerHTML = '<h1>Bernard: Humanoid</h1><p>As a humanoid, Bernard is indistinguishable from any other human.</p>';
             break;
         case 'bearB':
-            fd.innerHTML = '<span class="title">Bernard: Bear</span>As a bear, Bernard is indistinguishable from any other bear.';
+            fd.innerHTML = '<h1>Bernard: Bear</h1>As a bear, Bernard is indistinguishable from any other bear.';
             break;
         case 'hybridB':
-            fd.innerHTML = '<span class="title">Bernard: Hybrid</span>In hybrid form, Bernard is obviously a Shapechanger, or Ursilborn for those with such knowledge.';
+            fd.innerHTML = '<h1>Bernard: Hybrid</h1>In hybrid form, Bernard is obviously a Shapechanger, or Ursilborn for those with such knowledge.';
             break;
     }
 
@@ -221,10 +223,6 @@ function updateStatBlocks(currentForm) {
             break;
     }
 
-    // Update Stress Point Count
-    document.getElementById('stress-points').innerHTML = TempA.wis.mod + PB;
-
-
 
     // Update Calc Spans
     calcSpans(TempA, PB);
@@ -236,28 +234,35 @@ function updateStatBlocks(currentForm) {
 function calcSpans(TempA, PB) {
     let calcList = document.querySelectorAll('.calculate');
     calcList.forEach(i => {
+
         let text = '';
-        switch (i.innerHTML) {
+        switch (i.id) {
             case 'STRESS':
                 text = TempA.wis.mod + PB;
                 break;
+            case 'KI':
+                text = levelInput.value;
+                break;
+            case 'KI_SAVE':
+                text = 8 + PB + TempA.wis.mod;
+                break;
             case 'STR_ATK':
-                text = '+' + (TempA.str.mod + PB);
+                text = (TempA.str.mod + PB);
                 break;
             case 'DEX_ATK':
-                text = '+' + (TempA.dex.mod + PB);
+                text = (TempA.dex.mod + PB);
                 break;
             case 'CON_ATK':
-                text = '+' + (TempA.con.mod + PB);
+                text = (TempA.con.mod + PB);
                 break;
             case 'INT_ATK':
-                text = '+' + (TempA.int.mod + PB);
+                text = (TempA.int.mod + PB);
                 break;
             case 'WIS_ATK':
-                text = '+' + (TempA.wis.mod + PB);
+                text = (TempA.wis.mod + PB);
                 break;
             case 'CHA_ATK':
-                text = '+' + (TempA.cha.mod + PB);
+                text = (TempA.cha.mod + PB);
                 break;
 
             default:

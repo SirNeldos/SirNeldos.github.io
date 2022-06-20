@@ -11,23 +11,27 @@
 }
 
 body {
+    z-index: -11;
     background-color: var(--c-background);
-    /* background-image: url('light-paper-fibers.png');
-    background-blend-mode: exclusion; */
     color: var(--c-font);
     margin: 0;
     line-height: 1.3em;
 }
 
 p {
-    margin: 0;
+    margin: 0 0 8px 0;
 }
 
-h1, h2 {
-    font-family: times new roman,serif;
+h1,
+h2 {
+    font-family: times new roman, serif;
     font-variant: small-caps;
     font-weight: normal;
-    margin: 0 0 4px 0;
+    margin: 0 0 8px 0;
+}
+
+h2 {
+    border-bottom: 2px solid var(--c-accent);
 }
 
 ul {
@@ -37,17 +41,40 @@ ul {
 }
 
 
+/* BACKGROUND TEXTURE */
+#bg-img {
+    z-index: -10;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #5a450b40;
+    filter: contrast(200%);
+}
+
+.invert-color {
+    background-color: #44371224 !important;
+    opacity: 0.5;
+}
+
+
 /* FORM NAVIGATION BAR */
 #form-select {
     display: flex;
     justify-content: center;
+    background-color: var(--c-shadow);
+    color: var(--c-background);
+    height: 60px;
 }
 
 #form-select svg {
     cursor: pointer;
     width: 30px;
-    padding: 12px;
-    margin: 0 2vw;
+    padding: 15px;
+    margin: auto 2vw;
 }
 
 .current-form {
@@ -70,7 +97,7 @@ ul {
     position: absolute;
     right: 0px;
     text-align: center;
-    top: 50px;
+    top: 60px;
 }
 
 #menu tr:first-child td {
@@ -103,7 +130,7 @@ ul {
 
 /* STAT BLOCK */
 #stat-block-body {
-    margin: 0 16px;
+    margin: 16px;
 }
 
 
@@ -155,6 +182,7 @@ ul {
 .taper {
     margin-bottom: 5px;
 }
+
 .taper svg {
     width: 100%;
     height: 5px;
@@ -185,6 +213,10 @@ ul {
 
 .italic {
     font-style: italic;
+}
+
+.center {
+    text-align: center;
 }
 
 .dmg {
