@@ -27,12 +27,14 @@ document.querySelector('#dark-mode').addEventListener('click', () => {
         }
     };
     let r = document.querySelector(':root');
+    let b = document.querySelector('body');
 
     switch (dark) {
         case false:
             r.style.setProperty('--c-background', theme.dark.bg);
             r.style.setProperty('--c-shadow', theme.dark.shadow);
             r.style.setProperty('--c-font', theme.dark.font);
+            b.style.background = 'url(bg-dark.png) repeat-y';
             dark = true;
             break;
 
@@ -40,11 +42,10 @@ document.querySelector('#dark-mode').addEventListener('click', () => {
             r.style.setProperty('--c-background', theme.light.bg);
             r.style.setProperty('--c-shadow', theme.light.shadow);
             r.style.setProperty('--c-font', theme.light.font);
+            b.style.background = 'url(bg-light.png) repeat-y';
             dark = false;
             break;
     }
-
-    document.getElementById('bg-img').classList.toggle('invert-color');
 });
 
 
@@ -91,15 +92,15 @@ function updateStatBlocks(currentForm) {
     let TempA = JSON.parse(JSON.stringify(Abilities));
     switch (currentForm.id) {
         case 'bearB':
-            TempA.str.score = Abilities.str.score + 6;
+            TempA.str.score = Abilities.str.score + Math.ceil(Abilities.str.score/3);
             TempA.str.mod = Math.floor(TempA.str.score / 2) - 5;
-            TempA.con.score = Abilities.con.score + 6;
+            TempA.con.score = Abilities.con.score + Math.ceil(Abilities.con.score/3);
             TempA.con.mod = Math.floor(TempA.con.score / 2) - 5;
             break;
         case 'hybridB':
-            TempA.str.score = Abilities.str.score + 3;
+            TempA.str.score = Abilities.str.score + Math.ceil(Abilities.str.score/6);
             TempA.str.mod = Math.floor(TempA.str.score / 2) - 5;
-            TempA.con.score = Abilities.con.score + 3;
+            TempA.con.score = Abilities.con.score + Math.ceil(Abilities.con.score/6);
             TempA.con.mod = Math.floor(TempA.con.score / 2) - 5;
             break;
         default:
@@ -246,23 +247,44 @@ function calcSpans(TempA, PB) {
             case 'KI_SAVE':
                 text = 8 + PB + TempA.wis.mod;
                 break;
+            case 'BLESSING_SAVE':
+                text = 8 + PB + TempA.int.mod;
+                break;
             case 'STR_ATK':
-                text = (TempA.str.mod + PB);
+                text = TempA.str.mod + PB;
+                break;
+            case 'STR':
+                text = TempA.str.mod;
                 break;
             case 'DEX_ATK':
-                text = (TempA.dex.mod + PB);
+                text = TempA.dex.mod + PB;
+                break;
+            case 'DEX':
+                text = TempA.dex.mod;
                 break;
             case 'CON_ATK':
-                text = (TempA.con.mod + PB);
+                text = TempA.con.mod + PB;
+                break;
+            case 'CON':
+                text = TempA.con.mod;
                 break;
             case 'INT_ATK':
-                text = (TempA.int.mod + PB);
+                text = TempA.int.mod + PB;
+                break;
+            case 'INT':
+                text = TempA.int.mod;
                 break;
             case 'WIS_ATK':
-                text = (TempA.wis.mod + PB);
+                text = TempA.wis.mod + PB;
+                break;
+            case 'WIS':
+                text = TempA.wis.mod;
                 break;
             case 'CHA_ATK':
-                text = (TempA.cha.mod + PB);
+                text = TempA.cha.mod + PB;
+                break;
+            case 'CHA':
+                text = TempA.cha.mod;
                 break;
 
             default:

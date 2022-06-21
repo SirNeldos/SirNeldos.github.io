@@ -1,5 +1,5 @@
 :root {
-    --c-accent: #bd701c;
+    --c-accent: #a52a2a;
     --c-background: #ececd8;
     --c-font: #1e2d2f;
     --c-shadow: #1e2d2fe0;
@@ -12,7 +12,8 @@
 
 body {
     z-index: -11;
-    background-color: var(--c-background);
+    /* background-color: var(--c-background); */
+    background: url(bg-light.png) repeat-y;
     color: var(--c-font);
     margin: 0;
     line-height: 1.3em;
@@ -41,33 +42,17 @@ ul {
 }
 
 
-/* BACKGROUND TEXTURE */
-#bg-img {
-    z-index: -10;
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    width: 100%;
-    height: 100%;
-    background-color: #5a450b40;
-    filter: contrast(200%);
-}
-
-.invert-color {
-    background-color: #44371224 !important;
-    opacity: 0.5;
-}
-
-
 /* FORM NAVIGATION BAR */
 #form-select {
-    display: flex;
-    justify-content: center;
     background-color: var(--c-shadow);
     color: var(--c-background);
+    display: flex;
     height: 60px;
+    justify-content: center;
+    /* Safari */
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
 }
 
 #form-select svg {
