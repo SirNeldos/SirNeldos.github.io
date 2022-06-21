@@ -34,7 +34,7 @@ document.querySelector('#dark-mode').addEventListener('click', () => {
             r.style.setProperty('--c-background', theme.dark.bg);
             r.style.setProperty('--c-shadow', theme.dark.shadow);
             r.style.setProperty('--c-font', theme.dark.font);
-            b.style.background = 'url(bg-dark.png) repeat-y';
+            b.style.background = 'url(bg-dark.png) repeat';
             dark = true;
             break;
 
@@ -42,7 +42,7 @@ document.querySelector('#dark-mode').addEventListener('click', () => {
             r.style.setProperty('--c-background', theme.light.bg);
             r.style.setProperty('--c-shadow', theme.light.shadow);
             r.style.setProperty('--c-font', theme.light.font);
-            b.style.background = 'url(bg-light.png) repeat-y';
+            b.style.background = 'url(bg-light.png) repeat';
             dark = false;
             break;
     }
