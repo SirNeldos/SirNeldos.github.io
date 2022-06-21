@@ -1,7 +1,7 @@
 // ====== SKILLS LIST ====== //
 const skillsList = ['Acrobatics (Dex)', 'Animal Handling (Wis)', 'Arcana (Int)', 'Athletics (Str)', 'Deception (Cha)', 'History (Int)', 'Insight (Wis)', 'Intimidation (Cha)', 'Investigation (Int)', 'Medicine (Wis)', 'Nature (Int)', 'Perception (Wis)', 'Performance (Cha)', 'Persuasion (Cha)', 'Religion (Int)', 'Sleight of Hand (Dex)', 'Stealth (Dex)', 'Survival (Wis)']
-const proficientList = ['Athletics (Str)', 'Investigation (Int)', 'Stealth (Dex)'];
-const expertiseList = ['Insight (Wis)', 'Intimidation (Cha)'];
+const proficientList = ['Athletics (Str)', 'Investigation (Int)', 'Stealth (Dex)', 'Insight (Wis)', 'Intimidation (Cha)'];
+const expertiseList = [];
 
 // ====== ABILITY SCORES INPUT ====== //
 let Abilities = {};
@@ -92,15 +92,17 @@ function updateStatBlocks(currentForm) {
     let TempA = JSON.parse(JSON.stringify(Abilities));
     switch (currentForm.id) {
         case 'bearB':
-            TempA.str.score = Abilities.str.score + Math.ceil(Abilities.str.score/3);
+            TempA.str.score = Abilities.str.score + (2*PB);
             TempA.str.mod = Math.floor(TempA.str.score / 2) - 5;
-            TempA.con.score = Abilities.con.score + Math.ceil(Abilities.con.score/3);
+            TempA.con.score = Abilities.con.score + (2*PB);
             TempA.con.mod = Math.floor(TempA.con.score / 2) - 5;
             break;
         case 'hybridB':
-            TempA.str.score = Abilities.str.score + Math.ceil(Abilities.str.score/6);
+            TempA.str.score = Abilities.str.score + PB;
             TempA.str.mod = Math.floor(TempA.str.score / 2) - 5;
-            TempA.con.score = Abilities.con.score + Math.ceil(Abilities.con.score/6);
+            TempA.dex.score = Abilities.dex.score + PB;
+            TempA.dex.mod = Math.floor(TempA.dex.score / 2) - 5;
+            TempA.con.score = Abilities.con.score + PB;
             TempA.con.mod = Math.floor(TempA.con.score / 2) - 5;
             break;
         default:
@@ -135,9 +137,7 @@ function updateStatBlocks(currentForm) {
     document.getElementById('stat-prof').innerHTML = '<span class="bold">Proficiency Bonus</span>' + PB;
 
     // Update Armour Class
-    let AC = document.getElementById('stat-ac')
-    if (currentForm.id == 'humanoidB') AC.innerHTML = '<span class="bold">Armour Class</span>' + (10 + TempA.dex.mod + TempA.wis.mod);
-    else AC.innerHTML = '<span class="bold">Armour Class</span>' + (11 + TempA.dex.mod + TempA.wis.mod);
+    document.getElementById('stat-ac').innerHTML = `<span class="bold">Armour Class</span> ${(10 + TempA.con.mod)}`;
 
     // Update HP
     let tempText = `<span class="bold">Hit Points</span>${4 + (levelInput.value * (5 + TempA.con.mod))} (${levelInput.value}d8 + ${levelInput.value * TempA.con.mod})`;
@@ -285,6 +285,15 @@ function calcSpans(TempA, PB) {
                 break;
             case 'CHA':
                 text = TempA.cha.mod;
+                break;
+            case 'DAMAGE_DIE_1':
+                text = '1d' + (Math.ceil(Math.round(3+(levelInput.value/3))/2)*2);
+                break;
+            case 'DAMAGE_DIE_2':
+                text = '2d' + (Math.ceil(Math.round(3+(levelInput.value/3))/2)*2);
+                break;
+            case 'DAMAGE_DIE_3':
+                text = '3d' + (Math.ceil(Math.round(3+(levelInput.value/3))/2)*2);
                 break;
 
             default:

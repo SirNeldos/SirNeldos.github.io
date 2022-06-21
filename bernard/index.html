@@ -169,8 +169,16 @@
         <!-- HUMANOID FORM -->
         <div id="humanoid-form">
 
+            <h3>Level 1</h3>
+
+            <!-- BEAST HIDE -->
+            <p><span class="bold italic">Beast Hide.</span>Riddled with muscle and with thick skin, your AC equals 10 +
+                your Constitution Modifier.</p>
+
+            <!-- BEASTFORM -->
             <p><span class="bold italic">Beastform.</span>As an action, Bernard can transform into a Bear, or back into
-                its true form, which is humanoid. As a bear, Strength and Constitution are bolstered by a third and
+                its true form, which is humanoid. As a bear, Strength and Constitution are bolstered through Proficiency
+                Bonus and
                 reflected in attributes and skills. Any equipment Bernard is wearing or carrying isn't transformed.
                 Bernard reverts to his true form upon falling unconscious or death.</p>
 
@@ -190,21 +198,25 @@
 
             <br>
 
+            <h3>Level 2</h3>
+
             <!-- MARTIAL ARTS -->
             <p><span class="bold italic">Martial Arts.</span>When you use the Attack Action with an Unarmed Strike on
                 your turn, you can make one Unarmed Strike as your Bonus Action.</p>
 
             <!-- KI -->
-            <p><span class="bold italic">Ki.</span>Bernard has <span class="calculate" id="KI"></span> Ki Points that
+            <!-- <p><span class="bold italic">Ki.</span>Bernard has <span class="calculate" id="KI"></span> Ki Points that
                 fuel various Monk Features. Ki is restored at the end of a short or long rest. Some features require
                 your target to make a saving throw.</p>
             <p class="bold center">Ki save DC = <span class="calculate" id="KI_SAVE"></span></p>
 
-            <br>
+            <br> -->
 
             <!-- WAY OF THE FOREST -->
             <p><span class="bold italic">Way of the Forest.</span>Monks of the Way of the Forest follow their animal
-                instincts to grant stealth and strength. You currently have access to the following blessings of the
+                instincts to grant stealth and strength. These Blessings utilise Ki of which you have <span
+                    class="calculate" id="KI"></span> Points. You currently have access to the following blessings of
+                the
                 forest:</p>
             <div style="margin-left: 16px;">
                 <ul>
@@ -226,20 +238,20 @@
 
             <!-- Unarmed Strike -->
             <p><span class="bold italic">Unarmed Strike.</span>Melee Weapon Attack: +<span class="calculate"
-                    id="STR_ATK"></span> to hit, reach 5 ft., one target. Hit: (1d4 + <span class="calculate"
-                    id="STR"></span>) Bludgeoning Damage.</p>
+                    id="STR_ATK"></span> to hit, reach 5 ft., one target. Hit: (<span class="calculate"
+                    id="DAMAGE_DIE_1"></span> + <span class="calculate" id="STR"></span>) Bludgeoning Damage.</p>
 
 
             <br>
             <!-- BONUS ACTIONS -->
-            <h2>Bonus Actions</h2>
+            <!-- <h2>Bonus Actions</h2>
 
             <p><span class="bold italic">Flurry of Blows.</span>Immediately after you take the Attack action on your
                 turn, you can spend 1 ki point to make two unarmed strikes as a bonus action.</p>
             <p><span class="bold italic">Patient Defence.</span>You can spend 1 ki point to take the Dodge action as a
                 bonus action on your turn.</p>
             <p><span class="bold italic">Step of the Wind.</span>You can spend 1 ki point to take the Disengage or Dash
-                action as a bonus action on your turn, and your jump distance is doubled for the turn.</p>
+                action as a bonus action on your turn, and your jump distance is doubled for the turn.</p> -->
 
 
         </div>
@@ -247,19 +259,31 @@
         <!-- BEAR FORM -->
         <div id="bear-form" class="hide">
 
+            <h3>Level 1</h3>
+
+            <!-- BEAST HIDE -->
+            <p><span class="bold italic">Beast Hide.</span>Riddled with muscle and with thick skin, your AC equals 10 +
+                your Constitution Modifier.</p>
+
+            <!-- BEASTFORM -->
             <p><span class="bold italic">Beastform.</span>As an action, Bernard can transform into a Bear, or back into
-                its true form, which is humanoid. As a bear, Strength and Constitution are bolstered and reflected in
+                his true form, which is humanoid. As a bear, Strength and Constitution are bolstered and reflected in
                 attributes and skills. Any equipment Bernard is wearing or carrying isn't transformed. Bernard reverts
                 to his true form upon falling unconscious or death.</p>
 
-            <p><span class="bold italic">Stress.</span>When in a state of Stress and as a Bear, Bernard must spend Stress Points as rapidly as possible.</p>
+            <!-- STRESS -->
+            <p><span class="bold italic">Stress.</span>When in a state of Stress and as a Bear, Bernard must spend
+                Stress Points as rapidly as possible.</p>
             <div style="margin-left: 16px;">
                 <ul>
-                    <li><span class="bold italic">Savage Strike.</span>As an action, you attack the closest creature, friend or foe with an extra 1d6 Damage.</li>
+                    <li><span class="bold italic">Savage Strike.</span>As an action, you attack the closest creature,
+                        friend or foe with an extra 1d6 Damage.</li>
                 </ul>
             </div>
 
             <br>
+
+            <h3>Level 2</h3>
 
             <!-- WAY OF THE FOREST -->
             <p><span class="bold italic">Way of the Forest.</span>Monks of the Way of the Forest follow their animal
@@ -285,12 +309,14 @@
 
             <!-- Bite -->
             <p><span class="bold italic">Bite.</span>Melee Weapon Attack: +<span class="calculate" id="STR_ATK"></span>
-                to hit, reach 5 ft., one target. Hit: (3d4 + <span class="calculate" id="STR"></span>) Piercing Damage.
+                to hit, reach 5 ft., one target. Hit: (<span class="calculate" id="DAMAGE_DIE_3"></span> + <span
+                    class="calculate" id="STR"></span>) Piercing Damage.
             </p>
 
             <!-- Claw -->
             <p><span class="bold italic">Claw.</span>Melee Weapon Attack: +<span class="calculate" id="STR_ATK"></span>
-                to hit, reach 5 ft., one target. Hit: (2d4 + <span class="calculate" id="STR"></span>) Slashing Damage.
+                to hit, reach 5 ft., one target. Hit: (<span class="calculate" id="DAMAGE_DIE_2"></span> + <span
+                    class="calculate" id="STR"></span>) Slashing Damage.
             </p>
 
             <br>
@@ -302,20 +328,30 @@
 
         <!-- HYBRID FORM -->
         <div id="hybrid-form" class="hide">
-            <p>
-                hybrid hybrid hybrid hybrid hybrid hybrid hybrid hybrid hybrid hybrid
-                hybrid hybrid hybrid hybrid hybrid hybrid hybrid hybrid hybrid hybrid
-                hybrid hybrid hybrid hybrid hybrid hybrid hybrid hybrid hybrid hybrid
-                hybrid hybrid hybrid hybrid hybrid hybrid hybrid hybrid hybrid hybrid
-                hybrid hybrid hybrid hybrid hybrid hybrid hybrid hybrid hybrid hybrid
-                hybrid hybrid hybrid hybrid hybrid hybrid hybrid hybrid hybrid hybrid
-                hybrid hybrid hybrid hybrid hybrid hybrid hybrid hybrid hybrid hybrid
-                hybrid hybrid hybrid hybrid hybrid hybrid hybrid hybrid hybrid hybrid
-                hybrid hybrid hybrid hybrid hybrid hybrid hybrid hybrid hybrid hybrid
-                hybrid hybrid hybrid hybrid hybrid hybrid hybrid hybrid hybrid hybrid
-                hybrid hybrid hybrid hybrid hybrid hybrid hybrid hybrid hybrid hybrid
-                hybrid hybrid hybrid hybrid hybrid hybrid hybrid hybrid hybrid hybrid
-            </p>
+
+            <h3>Level 1</h3>
+
+            <!-- BEAST HIDE -->
+            <p><span class="bold italic">Beast Hide.</span>Riddled with muscle and with thick skin, your AC equals 10 +
+                your Constitution Modifier.</p>
+
+            <!-- BEASTFORM -->
+            <p><span class="bold italic">Beastform.</span>As an action, Bernard can transform into a Bear, Hybrid or back into
+                his true form, which is humanoid. As a bear, Strength and Constitution; in Hybrid, Strength, Dexterity and Constitution are bolstered, all reflected in
+                attributes and skills. Any equipment Bernard is wearing or carrying isn't transformed. Bernard reverts
+                to his true form upon falling unconscious or death.</p>
+
+            <!-- STRESS -->
+            <p><span class="bold italic">Stress.</span>When in a state of Stress and as a Bear, Bernard must spend
+                Stress Points as rapidly as possible.</p>
+            <div style="margin-left: 16px;">
+                <ul>
+                    <li><span class="bold italic">Savage Strike.</span>As an action, you attack the closest creature,
+                        friend or foe with an extra 1d6 Damage.</li>
+                </ul>
+            </div>
+
+
         </div>
 
     </div>

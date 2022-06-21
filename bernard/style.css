@@ -24,7 +24,8 @@ p {
 }
 
 h1,
-h2 {
+h2,
+h3 {
     font-family: times new roman, serif;
     font-variant: small-caps;
     font-weight: normal;
@@ -33,6 +34,10 @@ h2 {
 
 h2 {
     border-bottom: 2px solid var(--c-accent);
+}
+
+h3 {
+    border-bottom: 1px dashed var(--c-accent);
 }
 
 ul {
