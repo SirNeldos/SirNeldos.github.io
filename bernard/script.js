@@ -34,7 +34,7 @@ document.querySelector('#dark-mode').addEventListener('click', () => {
             r.style.setProperty('--c-background', theme.dark.bg);
             r.style.setProperty('--c-shadow', theme.dark.shadow);
             r.style.setProperty('--c-font', theme.dark.font);
-            b.style.background = 'url(bg-dark.png) repeat';
+            b.style.background = 'url(imgs/bg-dark.png) repeat';
             dark = true;
             break;
 
@@ -42,7 +42,7 @@ document.querySelector('#dark-mode').addEventListener('click', () => {
             r.style.setProperty('--c-background', theme.light.bg);
             r.style.setProperty('--c-shadow', theme.light.shadow);
             r.style.setProperty('--c-font', theme.light.font);
-            b.style.background = 'url(bg-light.png) repeat';
+            b.style.background = 'url(imgs/bg-light.png) repeat';
             dark = false;
             break;
     }
@@ -57,17 +57,11 @@ document.getElementById('menu-button').addEventListener('click', () => {
 
 // ====== FORM NAV-BAR SETTINGS ====== //
 const formList = [document.getElementById('humanoidB'), document.getElementById('bearB'), document.getElementById('hybridB')]
+let currentForm = document.getElementById('humanoidB');
 formList.forEach(i => {
     i.addEventListener('click', () => {
-        formList.forEach(j => {
-            j.classList.remove('current-form');
-            document.getElementById(j.id.slice(0, -1) + '-form').classList.add('hide');
-        });
-        i.classList.add('current-form');
-        document.getElementById(i.id.slice(0, -1) + '-form').classList.remove('hide');
-
-        // UPDATE STAT BLOCKS
-        updateStatBlocks(i);
+        currentForm = i;
+        updateStatBlocks();
     });
 });
 
@@ -87,7 +81,7 @@ levelInput.addEventListener('change', () => {
     updateStatBlocks(document.querySelector('.current-form'));
 });
 
-function updateStatBlocks(currentForm) {
+function updateStatBlocks() {
     // Make Abilities Object to modify for each form and trickle-down information
     let TempA = JSON.parse(JSON.stringify(Abilities));
     switch (currentForm.id) {
@@ -120,13 +114,13 @@ function updateStatBlocks(currentForm) {
     let fd = document.getElementById('form-description');
     switch (currentForm.id) {
         case 'humanoidB':
-            fd.innerHTML = '<h1>Bernard: Humanoid</h1><p>As a humanoid, Bernard is indistinguishable from any other human.</p>';
+            fd.innerHTML = '<h1>Bernard: Humanoid</h1>As a humanoid, Bernard is indistinguishable from any other human.';
             break;
         case 'bearB':
             fd.innerHTML = '<h1>Bernard: Bear</h1>As a bear, Bernard is indistinguishable from any other bear.';
             break;
         case 'hybridB':
-            fd.innerHTML = '<h1>Bernard: Hybrid</h1>In hybrid form, Bernard is obviously a Shapechanger, or Ursilborn for those with such knowledge.';
+            fd.innerHTML = '<h1>Bernard: Hybrid</h1>In hybrid form, Bernard is obviously a Shapechanger, or Ursilborn.';
             break;
     }
 
@@ -144,19 +138,28 @@ function updateStatBlocks(currentForm) {
     document.getElementById('stat-hp').innerHTML = tempText;
 
     // Update Speed
-    tempText = '<span class="bold">Speed</span>';
     switch (currentForm.id) {
         case 'humanoidB':
-            tempText += '30ft.';
+            document.getElementById('stat-speed').innerHTML = '<span class="bold">Speed</span>30ft.';
             break;
         case 'bearB':
-            tempText += '40ft. & Climb 30ft.';
+            document.getElementById('stat-speed').innerHTML = '<span class="bold">Speed</span>40ft. & Climb 30ft.';
             break;
         case 'hybridB':
-            tempText += '50ft.';
+            document.getElementById('stat-speed').innerHTML = '<span class="bold">Speed</span>50ft.';
             break;
     }
-    document.getElementById('stat-speed').innerHTML = tempText;
+
+    // Update Size
+    switch (currentForm.id) {
+        case 'bearB':
+            document.getElementById('stat-size').innerHTML = '<span class="bold">Size</span>Large';
+            break;
+        default:
+            document.getElementById('stat-size').innerHTML = '<span class="bold">Size</span>Medium';
+            break;
+    }
+
 
 
     // Update Abilities
@@ -200,15 +203,7 @@ function updateStatBlocks(currentForm) {
     document.getElementById('stat-skills').innerHTML = tempText + '</table>';
 
     // Update Senses
-    let statSenses = document.getElementById('stat-senses');
-    switch (currentForm.id) {
-        case 'humanoidB':
-            statSenses.innerHTML = `<span class="bold">Senses</span>Passive Perception ${TempA.wis.mod + 10}`;;
-            break;
-        default:
-            statSenses.innerHTML = `<span class="bold">Senses</span>Passive Perception ${TempA.wis.mod + PB + 10}`;
-            break;
-    }
+    document.getElementById('stat-senses').innerHTML = `<span class="bold">Senses</span>Passive Perception ${TempA.wis.mod + 10}`;
 
     // Update Language
     let statLanguage = document.getElementById('stat-languages');
@@ -224,6 +219,22 @@ function updateStatBlocks(currentForm) {
             break;
     }
 
+    
+    // Show / Hide Class Abilities and Actions
+    formList.forEach(i => {
+        i.classList.remove('current-form');
+        document.querySelectorAll(`.${i.id.slice(0, -1)}-form`).forEach(j => j.classList.add('hide'));
+    });
+    currentForm.classList.add('current-form');
+    document.querySelectorAll(`.${currentForm.id.slice(0, -1)}-form`).forEach(j => j.classList.remove('hide'));
+
+
+    // Hide elements above current level
+    for (let i = 1; i < 20; i++) {
+        document.querySelectorAll(`.lvl-${i}`).forEach(x => {
+            if (i > levelInput.value) x.classList.add('hide');
+        });
+    }
 
     // Update Calc Spans
     calcSpans(TempA, PB);
@@ -293,7 +304,7 @@ function calcSpans(TempA, PB) {
                 text = '2d' + (Math.ceil(Math.round(3+(levelInput.value/3))/2)*2);
                 break;
             case 'DAMAGE_DIE_3':
-                text = '3d' + (Math.ceil(Math.round(3+(levelInput.value/3))/2)*2);
+                text = '2d' + ((Math.ceil(Math.round(3+(levelInput.value/3))/2)*2)+2);
                 break;
 
             default:
