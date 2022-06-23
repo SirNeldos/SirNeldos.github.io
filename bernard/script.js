@@ -219,22 +219,30 @@ function updateStatBlocks() {
             break;
     }
 
-    
-    // Show / Hide Class Abilities and Actions
+    // Update Stress
+    document.getElementById('stat-stress').innerHTML = `<span class="bold">Stress Points</span>${TempA.wis.mod + PB}`;
+
+    // Update Ki
+    document.getElementById('stat-ki').innerHTML = `<span class="bold">Ki Points</span>${levelInput.value}`;
+
+    // Hide All Abilities and Actions by Form and Level
     formList.forEach(i => {
         i.classList.remove('current-form');
         document.querySelectorAll(`.${i.id.slice(0, -1)}-form`).forEach(j => j.classList.add('hide'));
     });
+
+    for (let i = 1; i < 20; i++) document.querySelectorAll(`.lvl-${i}`).forEach(x => x.classList.add('hide'));
+
+    // Display current form in Nav Bar
     currentForm.classList.add('current-form');
-    document.querySelectorAll(`.${currentForm.id.slice(0, -1)}-form`).forEach(j => j.classList.remove('hide'));
 
+    let l = levelInput;
 
-    // Hide elements above current level
-    for (let i = 1; i < 20; i++) {
-        document.querySelectorAll(`.lvl-${i}`).forEach(x => {
-            if (i > levelInput.value) x.classList.add('hide');
-        });
-    }
+    // Unhide Abilities and Actions if classList contains 'current-form' and if it meets current level
+    let cForm = document.querySelectorAll(`.${currentForm.id.slice(0, -1)}-form`);
+    cForm.forEach(i => { for (let j = l.value; j <= 20; j++) if (!i.classList.contains(`lvl-${j}`)) i.classList.remove('hide'); });
+
+    for (let i = parseInt(l.value)+1; i <= 20; i++) document.querySelectorAll(`.lvl-${i}`).forEach(x => x.classList.add('hide'));
 
     // Update Calc Spans
     calcSpans(TempA, PB);

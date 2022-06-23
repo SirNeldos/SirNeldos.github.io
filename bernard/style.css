@@ -20,7 +20,7 @@ body {
 }
 
 p {
-    margin: 0 0 8px 0;
+    margin: 4px 0;
 }
 
 h1,
@@ -212,4 +212,8 @@ ul {
 .dmg {
     font-size: 0.8em;
     font-weight: bold;
+}
+
+.margin {
+    margin: 0 0 8px 16px;
 }
