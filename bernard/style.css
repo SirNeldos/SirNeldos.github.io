@@ -193,7 +193,7 @@ ul {
 }
 
 
-/* TAPERS */
+/* ====== TAPERS ======= */
 .taper {
     margin-bottom: 5px;
 }
@@ -202,6 +202,17 @@ ul {
     width: 100%;
     height: 5px;
     fill: var(--c-accent);
+}
+
+/* ====== STRESS ICONS ====== */
+.stress-icon {
+    margin-right: 4px;
+}
+.stress-icon svg {
+    width: 1em;
+    padding: 0;
+    margin: 0;
+    vertical-align: text-top;
 }
 
 
