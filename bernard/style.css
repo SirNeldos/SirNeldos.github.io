@@ -58,6 +58,8 @@ ul {
     position: -webkit-sticky;
     position: sticky;
     top: 0;
+    transition: top 0.5s;
+    z-index: 10;
 }
 
 #form-select svg {
@@ -88,6 +90,7 @@ ul {
     right: 0px;
     text-align: center;
     top: 60px;
+    z-index: 10;
 }
 
 #menu tr:first-child td {
@@ -115,6 +118,28 @@ ul {
     margin-top: 4px;
     padding: 12px 16px;
     width: 150px;
+}
+
+
+/* ====== STRESS & KI TRACKER ====== */
+#tracker {
+    background-color: var(--c-shadow);
+    color: var(--c-background);
+    padding: 4px;
+    /* Safari */
+    position: -webkit-sticky;
+    position: sticky;
+    top: 60px;
+    transition: top 0.5s;
+    line-height: normal;
+}
+
+#tracker table td:first-child {
+    width: 120px;
+}
+
+#tracker input {
+    color: #a52a2a;
 }
 
 

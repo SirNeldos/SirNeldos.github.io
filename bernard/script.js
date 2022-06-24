@@ -72,6 +72,27 @@ document.querySelectorAll('.taper').forEach(e => {
 });
 
 
+// ====== UPDATE MENU BARS WHEN SCROLLING ====== //
+let lastScrollTop = 0;
+
+window.addEventListener("scroll", () => {
+    var st = window.pageYOffset || document.documentElement.scrollTop;
+    if (st > lastScrollTop) {
+        document.getElementById('form-select').style.top = '-60px';
+        document.getElementById('tracker').style.top = '0';
+    } else {
+        document.getElementById('form-select').style.top = '0';
+        document.getElementById('tracker').style.top = '60px';
+    }
+    lastScrollTop = st <= 0 ? 0 : st; // For Mobile or negative scrolling
+}, false);
+
+
+// ====== TRACK STRESS & KI ====== //
+let currentStressPoints = 0;
+let currentKiPoints = 0;
+
+
 // ====== UPDATE STAT BLOCKS ====== //
 const levelInput = document.getElementById('level-input');
 let PB = Math.ceil(levelInput.value / 4) + 1;
@@ -110,6 +131,41 @@ function updateStatBlocks() {
     // Update Proficiency Bonus variable
     PB = Math.ceil(levelInput.value / 4) + 1;
 
+    // Update Stress & KI Points Menu 
+    let stressCount = TempA.wis.mod + PB;
+    let kiCount = levelInput.value;
+    let tempText = '';
+
+    // Update Stress
+    tempText = '<td><span class="bold">Stress Points</span></td><td>';
+    for (let i = 1; i <= stressCount; i++) {
+        if (i <= currentStressPoints) tempText += '<input class="stressCheck" type="checkbox" checked></input>';
+        else tempText += '<input class="stressCheck" type="checkbox"></input>';
+    }
+    document.getElementById('stress').innerHTML = tempText + '</td>';
+
+    // Update Ki
+    tempText = '<td><span class="bold">Ki Points</span></td><td>';
+    for (let i = 1; i <= kiCount; i++) {
+        if (i <= currentKiPoints) tempText += '<input class="kiCheck" type="checkbox" checked></input>';
+        else tempText += '<input class="kiCheck" type="checkbox"></input>';
+    }
+    document.getElementById('ki').innerHTML = tempText + '</td>';
+
+    // Event Handlers for Stress & Ki
+    document.querySelectorAll('.stressCheck').forEach(i => {
+        i.addEventListener('change', e => {
+            if (e.target.checked) currentStressPoints++;
+            else currentStressPoints--;
+        });
+    });
+    document.querySelectorAll('.kiCheck').forEach(i => {
+        i.addEventListener('change', e => {
+            if (e.target.checked) currentKiPoints++;
+            else currentKiPoints--;
+        });
+    });
+
     // Update Form Description
     let fd = document.getElementById('form-description');
     switch (currentForm.id) {
@@ -134,7 +190,7 @@ function updateStatBlocks() {
     document.getElementById('stat-ac').innerHTML = `<span class="bold">Armour Class</span> ${(10 + TempA.con.mod)}`;
 
     // Update HP
-    let tempText = `<span class="bold">Hit Points</span>${4 + (levelInput.value * (5 + TempA.con.mod))} (${levelInput.value}d8 + ${levelInput.value * TempA.con.mod})`;
+    tempText = `<span class="bold">Hit Points</span>${4 + (levelInput.value * (5 + TempA.con.mod))} (${levelInput.value}d8 + ${levelInput.value * TempA.con.mod})`;
     document.getElementById('stat-hp').innerHTML = tempText;
 
     // Update Speed
@@ -218,12 +274,6 @@ function updateStatBlocks() {
             statLanguage.innerHTML = `<span class="bold">Languages</span>Speaks Common and Elvish`;
             break;
     }
-
-    // Update Stress
-    document.getElementById('stat-stress').innerHTML = `<span class="bold">Stress Points</span>${TempA.wis.mod + PB}`;
-
-    // Update Ki
-    document.getElementById('stat-ki').innerHTML = `<span class="bold">Ki Points</span>${levelInput.value}`;
 
     // Hide All Abilities and Actions by Form and Level
     formList.forEach(i => {
