@@ -1,0 +1,37 @@
+:root {
+    --c-accent: #a52a2a;
+    --c-background: #ececd8;
+    --c-font: #1e2d2f;
+    --c-shadow: #1e2d2fe0;
+    --c-table: #62383841;
+
+    font-family: convergence, Arial, sans-serif;
+    font-size: 100%;
+    font-weight: 400;
+}
+
+body {
+    background: url('imgs/bg-light.png') repeat;
+    color: var(--c-font);
+    line-height: 1.3em;
+    margin: 0;
+    padding: 8px;
+    z-index: -11;
+}
+
+p {
+    margin: 4px 0;
+}
+
+h1,
+h2,
+h3 {
+    font-family: 'times new roman', serif;
+    font-variant: small-caps;
+    font-weight: normal;
+    margin: 0 0 8px 0;
+}
+
+h2 {
+    border-bottom: 2px solid var(--c-accent);
+}

@@ -89,9 +89,11 @@ window.addEventListener("scroll", () => {
     if (st > lastScrollTop) {
         document.getElementById('form-select').style.top = '-60px';
         document.getElementById('tracker').style.top = '0';
+        document.getElementById('menu').classList.add('hide');
     } else {
         document.getElementById('form-select').style.top = '0';
         document.getElementById('tracker').style.top = '60px';
+        document.getElementById('menu').classList.add('hide');
     }
     lastScrollTop = st <= 0 ? 0 : st; // For Mobile or negative scrolling
 }, false);
@@ -103,18 +105,25 @@ let currentKiPoints = 0;
 
 
 // ====== UPDATE STAT BLOCKS ====== //
-const levelInput = document.getElementById('level-input');
-let PB = Math.ceil(levelInput.value / 4) + 1;
-levelInput.addEventListener('change', () => {
-    if (levelInput.value <= 0) levelInput.value = 1;
-    if (levelInput.value > 20) levelInput.value = 20;
+let myLevel = document.getElementById('level-input').innerHTML;
+let PB = Math.ceil(myLevel / 4) + 1;
+document.getElementById('level-up').addEventListener('click', () => {
+    if (myLevel > 20) myLevel = 20;
+    else myLevel++;
+    document.getElementById('level-input').innerHTML = myLevel;
+    updateStatBlocks(document.querySelector('.current-form'));
+});
+document.getElementById('level-down').addEventListener('click', () => {
+    if (myLevel <= 0) myLevel = 1;
+    else myLevel--;
+    document.getElementById('level-input').innerHTML = myLevel;
     updateStatBlocks(document.querySelector('.current-form'));
 });
 
 function updateStatBlocks() {
 
     // Update Proficiency Bonus variable
-    PB = Math.ceil(levelInput.value / 4) + 1;
+    PB = Math.ceil(myLevel / 4) + 1;
 
     // Make Abilities Object to modify for each form and trickle-down information
     let TempA = JSON.parse(JSON.stringify(Abilities));
@@ -138,12 +147,12 @@ function updateStatBlocks() {
     }
 
     // Display Available Forms
-    if (levelInput.value >= 4) document.getElementById('hybridB').parentElement.classList.remove('hide');
+    if (myLevel >= 4) document.getElementById('hybridB').parentElement.classList.remove('hide');
     else document.getElementById('hybridB').parentElement.classList.add('hide');
 
     // Update Stress & KI Points Menu 
     let stressCount = TempA.wis.mod + PB;
-    let kiCount = levelInput.value;
+    let kiCount = myLevel;
     let tempText = '';
 
     // Update Stress
@@ -191,7 +200,7 @@ function updateStatBlocks() {
     }
 
     // Update Level
-    document.getElementById('stat-level').innerHTML = '<span class="bold">Level</span>' + levelInput.value;
+    document.getElementById('stat-level').innerHTML = '<span class="bold">Level</span>' + myLevel;
 
     // Update Proficiency Bonus
     document.getElementById('stat-prof').innerHTML = '<span class="bold">Proficiency Bonus</span>' + PB;
@@ -200,7 +209,7 @@ function updateStatBlocks() {
     document.getElementById('stat-ac').innerHTML = `<span class="bold">Armour Class</span> ${(10 + TempA.con.mod)}`;
 
     // Update HP
-    tempText = `<span class="bold">Hit Points</span>${3 + (levelInput.value * (5 + TempA.con.mod))} (${levelInput.value}d8 + ${levelInput.value * TempA.con.mod})`;
+    tempText = `<span class="bold">Hit Points</span>${3 + (myLevel * (5 + TempA.con.mod))} (${myLevel}d8 + ${myLevel * TempA.con.mod})`;
     document.getElementById('stat-hp').innerHTML = tempText;
 
     // Update Speed
@@ -225,7 +234,6 @@ function updateStatBlocks() {
             document.getElementById('stat-size').innerHTML = '<span class="bold">Size</span>Medium';
             break;
     }
-
 
 
     // Update Abilities
@@ -296,13 +304,11 @@ function updateStatBlocks() {
     // Display current form in Nav Bar
     currentForm.classList.add('current-form');
 
-    let l = levelInput;
-
     // Unhide Abilities and Actions if classList contains 'current-form' and if it meets current level
     let cForm = document.querySelectorAll(`.${currentForm.id.slice(0, -1)}-form`);
-    cForm.forEach(i => { for (let j = l.value; j <= 20; j++) if (!i.classList.contains(`lvl-${j}`)) i.classList.remove('hide'); });
+    cForm.forEach(i => { for (let j = myLevel; j <= 20; j++) if (!i.classList.contains(`lvl-${j}`)) i.classList.remove('hide'); });
 
-    for (let i = parseInt(l.value)+1; i <= 20; i++) document.querySelectorAll(`.lvl-${i}`).forEach(x => x.classList.add('hide'));
+    for (let i = parseInt(myLevel)+1; i <= 20; i++) document.querySelectorAll(`.lvl-${i}`).forEach(x => x.classList.add('hide'));
 
     // Update Calc Spans
     calcSpans(TempA, PB);
@@ -321,7 +327,7 @@ function calcSpans(TempA, PB) {
                 text = TempA.wis.mod + PB;
                 break;
             case 'KI':
-                text = levelInput.value;
+                text = myLevel;
                 break;
             case 'KI_SAVE':
                 text = 8 + PB + TempA.wis.mod;
@@ -366,13 +372,13 @@ function calcSpans(TempA, PB) {
                 text = TempA.cha.mod;
                 break;
             case 'DAMAGE_DIE_1':
-                text = '1d' + (Math.ceil(Math.round(3+(levelInput.value/3))/2)*2);
+                text = '1d' + (Math.ceil(Math.round(3+(myLevel/3))/2)*2);
                 break;
             case 'DAMAGE_DIE_2':
-                text = '2d' + (Math.ceil(Math.round(3+(levelInput.value/3))/2)*2);
+                text = '2d' + (Math.ceil(Math.round(3+(myLevel/3))/2)*2);
                 break;
             case 'DAMAGE_DIE_3':
-                text = '2d' + ((Math.ceil(Math.round(3+(levelInput.value/3))/2)*2)+2);
+                text = '2d' + ((Math.ceil(Math.round(3+(myLevel/3))/2)*2)+2);
                 break;
 
             default:
