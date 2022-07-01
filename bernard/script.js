@@ -14,7 +14,7 @@ function constructAbilities() {
 
 // ====== DARK MODE ====== //
 let dark = false;
-document.querySelector('#dark-mode').addEventListener('click', () => {
+document.getElementById('dark-mode').addEventListener('click', () => {
     let theme = {
         'light': {
             'bg': '#ececd8',
@@ -46,6 +46,18 @@ document.querySelector('#dark-mode').addEventListener('click', () => {
             dark = false;
             break;
     }
+});
+
+
+// ====== DISPLAY PROFILE PICTURE ====== //
+const photoButton = document.getElementById('photo-button');
+const photo = document.getElementById('profile-picture');
+
+photoButton.addEventListener('click', () => {
+    photo.classList.remove('hide');
+});
+photo.addEventListener('click', () => {
+    photo.classList.add('hide');
 });
 
 
