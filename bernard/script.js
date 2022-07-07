@@ -120,13 +120,13 @@ let currentKiPoints = 0;
 let myLevel = document.getElementById('level-input').innerHTML;
 let PB = Math.ceil(myLevel / 4) + 1;
 document.getElementById('level-up').addEventListener('click', () => {
-    if (myLevel > 20) myLevel = 20;
+    if (myLevel >= 20) myLevel = 20;
     else myLevel++;
     document.getElementById('level-input').innerHTML = myLevel;
     updateStatBlocks(document.querySelector('.current-form'));
 });
 document.getElementById('level-down').addEventListener('click', () => {
-    if (myLevel <= 0) myLevel = 1;
+    if (myLevel <= 1) myLevel = 1;
     else myLevel--;
     document.getElementById('level-input').innerHTML = myLevel;
     updateStatBlocks(document.querySelector('.current-form'));
@@ -141,14 +141,12 @@ function updateStatBlocks() {
     let TempA = JSON.parse(JSON.stringify(Abilities));
     switch (currentForm.id) {
         case 'bearB':
-            TempA.str.score = Abilities.str.score + (2*PB);
+            TempA.str.score = Abilities.str.score + PB;
             TempA.str.mod = Math.floor(TempA.str.score / 2) - 5;
             TempA.con.score = Abilities.con.score + (2*PB);
             TempA.con.mod = Math.floor(TempA.con.score / 2) - 5;
             break;
         case 'hybridB':
-            TempA.str.score = Abilities.str.score + PB;
-            TempA.str.mod = Math.floor(TempA.str.score / 2) - 5;
             TempA.dex.score = Abilities.dex.score + PB;
             TempA.dex.mod = Math.floor(TempA.dex.score / 2) - 5;
             TempA.con.score = Abilities.con.score + PB;
@@ -221,7 +219,7 @@ function updateStatBlocks() {
     document.getElementById('stat-ac').innerHTML = `<span class="bold">Armour Class</span> ${(10 + TempA.con.mod)}`;
 
     // Update HP
-    tempText = `<span class="bold">Hit Points</span>${3 + (myLevel * (5 + TempA.con.mod))} (${myLevel}d8 + ${myLevel * TempA.con.mod})`;
+    tempText = `<span class="bold">Hit Points</span>${4 + (myLevel * (6 + TempA.con.mod))} (${myLevel}d10 + ${myLevel * TempA.con.mod})`;
     document.getElementById('stat-hp').innerHTML = tempText;
 
     // Update Speed
@@ -236,6 +234,9 @@ function updateStatBlocks() {
             document.getElementById('stat-speed').innerHTML = '<span class="bold">Speed</span>50ft.';
             break;
     }
+
+    // Update Initiative
+    document.getElementById('stat-initiative').innerHTML = `<span class="bold">Initiative</span> ${(TempA.dex.mod)}`;
 
     // Update Size
     switch (currentForm.id) {
