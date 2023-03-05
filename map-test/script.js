@@ -56,8 +56,16 @@ function loadPins() {
   fetch('./data.json')
     .then(response => response.json())
     .then(data => {
+
+      console.log('data:',data);
+
+      pins = JSON.parse(data);
+
+      console.log('pins:', pins);
+
       // Do something with the loaded data, such as adding markers to the map
-      data.forEach(i => {
+      for (let i = 0; i < pins.length; i++) {
+        var pin = pins[i];
 
         var icon = L.divIcon({
           html: "<div class='my-icon-label'>" + pin.text + "</div>",
