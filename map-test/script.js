@@ -1,3 +1,4 @@
+
 // Create an array to store pins
 var pins = [];
 var canPin = false;
@@ -27,7 +28,8 @@ L.imageOverlay(imageUrl, imageBounds).addTo(map);
 
 // ============ SAVE / LOAD PINS ============== //
 loadPins();
-// load the pins from Local Storage
+
+// // load the pins from Local Storage
 // function loadPins() {
 //   if (localStorage.getItem('pins')) {
 //     pins = JSON.parse(localStorage.getItem('pins'));
@@ -51,11 +53,11 @@ loadPins();
 // }
 
 function loadPins() {
-  fetch('data.json')
+  fetch('./data.json')
     .then(response => response.json())
     .then(data => {
       // Do something with the loaded data, such as adding markers to the map
-      data.forEach(item => {
+      data.forEach(i => {
 
         var icon = L.divIcon({
           html: "<div class='my-icon-label'>" + pin.text + "</div>",
