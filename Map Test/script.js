@@ -28,52 +28,52 @@ L.imageOverlay(imageUrl, imageBounds).addTo(map);
 // ============ SAVE / LOAD PINS ============== //
 loadPins();
 // load the pins from Local Storage
-function loadPins() {
-  if (localStorage.getItem('pins')) {
-    pins = JSON.parse(localStorage.getItem('pins'));
-
-    for (let i = 0; i < pins.length; i++) {
-      const pin = pins[i];
-
-      var icon = L.divIcon({
-        html: "<div class='my-icon-label'>" + pin.text + "</div>",
-        className: 'my-div-icon',
-        iconAnchor: [10, 30]
-      });
-
-      var marker = L.marker(pin.coord, { icon: icon }).addTo(map);
-
-      marker.on("click", function () {
-        deleteMarker(i);
-      });
-    }
-  }
-}
-
 // function loadPins() {
-//   fetch('data.json')
-//     .then(response => response.json())
-//     .then(data => {
-//       // Do something with the loaded data, such as adding markers to the map
-//       data.forEach(item => {
+//   if (localStorage.getItem('pins')) {
+//     pins = JSON.parse(localStorage.getItem('pins'));
 
-//         var icon = L.divIcon({
-//           html: "<div class='my-icon-label'>" + pin.text + "</div>",
-//           className: 'my-div-icon',
-//           iconAnchor: [10, 30]
-//         });
+//     for (let i = 0; i < pins.length; i++) {
+//       const pin = pins[i];
 
-//         var marker = L.marker(pin.coord, { icon: icon }).addTo(map);
-
-//         marker.on("click", function () {
-//           deleteMarker(i);
-//         });
+//       var icon = L.divIcon({
+//         html: "<div class='my-icon-label'>" + pin.text + "</div>",
+//         className: 'my-div-icon',
+//         iconAnchor: [10, 30]
 //       });
-//     })
-//     .catch(error => {
-//       console.error('Error loading data:', error);
-//     });
+
+//       var marker = L.marker(pin.coord, { icon: icon }).addTo(map);
+
+//       marker.on("click", function () {
+//         deleteMarker(i);
+//       });
+//     }
+//   }
 // }
+
+function loadPins() {
+  fetch('data.json')
+    .then(response => response.json())
+    .then(data => {
+      // Do something with the loaded data, such as adding markers to the map
+      data.forEach(item => {
+
+        var icon = L.divIcon({
+          html: "<div class='my-icon-label'>" + pin.text + "</div>",
+          className: 'my-div-icon',
+          iconAnchor: [10, 30]
+        });
+
+        var marker = L.marker(pin.coord, { icon: icon }).addTo(map);
+
+        marker.on("click", function () {
+          deleteMarker(i);
+        });
+      });
+    })
+    .catch(error => {
+      console.error('Error loading data:', error);
+    });
+}
 
 
 
