@@ -57,14 +57,14 @@ function loadPins() {
     .then(response => response.json())
     .then(data => {
 
-      console.log('data:',data);
+      console.log('data:', data);
 
       pins = JSON.parse(data);
 
       console.log('pins:', pins);
 
       // Do something with the loaded data, such as adding markers to the map
-      for (let i = 0; i < pins.length; i++) {
+      data.forEach(item => {
         var pin = pins[i];
 
         var icon = L.divIcon({
@@ -80,9 +80,9 @@ function loadPins() {
         });
       });
     })
-    .catch(error => {
+    .catch (error => {
       console.error('Error loading data:', error);
-    });
+    })
 }
 
 
