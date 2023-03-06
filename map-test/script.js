@@ -1,9 +1,4 @@
 
-// Create an array to store pins
-var pins = [];
-var canPin = false;
-var canDeletePin = false;
-
 // Map info
 var mapFile = './aviltar.png';
 var mapDim = { "width": 5200, "height": 5200 };
@@ -35,7 +30,6 @@ function loadPins() {
     .then(data => {
 
       // Do something with the loaded data, such as adding markers to the map
-      var count = 0;
       data.forEach(pin => {
 
         var icon = L.divIcon({
@@ -45,8 +39,6 @@ function loadPins() {
         });
 
         L.marker(pin.coord, { icon: icon }).addTo(map);
-
-        count++;
       });
     })
     .catch (error => {
