@@ -64,6 +64,7 @@ function loadPins() {
       //console.log('pins:', pins);
 
       // Do something with the loaded data, such as adding markers to the map
+      var count = 0;
       data.forEach(pin => {
         console.log(pin);
 
@@ -76,8 +77,10 @@ function loadPins() {
         var marker = L.marker(pin.coord, { icon: icon }).addTo(map);
 
         marker.on("click", function () {
-          deleteMarker(i);
+          deleteMarker(count);
         });
+        
+        count++;
       });
     })
     .catch (error => {
