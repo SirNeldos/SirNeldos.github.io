@@ -1,0 +1,48 @@
+body {
+    font-family: Calibri, Arial, sans-serif;
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+    table-layout: auto;
+    width: 100%;
+    display: table;
+    border: 1px solid #ccc;
+}
+
+.column1 {
+    width: 30px;
+}
+
+td, th {
+    padding: 5px;
+    text-align: center;
+    width: auto;
+}
+
+tr:nth-child(even) {
+    background-color: #DFF0D8;
+}
+
+tr:nth-child(odd) {
+    background-color: #abd7ad;
+}
+
+.header {
+    background-color: #4f8b51;
+}
+
+.footer {
+    background-color: #4CAF50;
+    font-weight: bold;
+}
+
+input[type="radio"] {
+    margin-right: 5px;
+}
+
+input[type="number"] {
+    text-align: center;
+    width: 50px;
+}
